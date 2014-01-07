@@ -2,10 +2,10 @@ var timers = [0, 0],
   player, clock;
 
 function updateView() {
-  a = timers[0].toString()
-  b = timers[1].toString()
-  document.getElementById('counter1').innerHTML = a; 
-  document.getElementById('counter2').innerHTML = b;
+  time_1 = timers[0].toString()
+  time_2 = timers[1].toString()
+  document.getElementById('counter1').innerHTML = time_1.slice(0,-1)+"."+time_1.slice(-1); 
+  document.getElementById('counter2').innerHTML = time_2.slice(0,-1)+"."+time_2.slice(-1);
 };
 
 function tick() {
