@@ -2,8 +2,10 @@ var timers = [0, 0],
   player, clock;
 
 function updateView() {
-  document.getElementById('counter1').innerHTML = timers[0]; 
-  document.getElementById('counter2').innerHTML = timers[1];
+  a = timers[0].toString()
+  b = timers[1].toString()
+  document.getElementById('counter1').innerHTML = a; 
+  document.getElementById('counter2').innerHTML = b;
 };
 
 function tick() {
@@ -14,16 +16,34 @@ function tick() {
 function changePlayer() {
     clearInterval(clock);
     player = (player === 0) ? 1 : 0;
-    clock = setInterval( tick, 1000 );
+    clock = setInterval( tick, 100 );
 };
 
-document.onkeyup = function(e) {
+window.onkeyup = function(e) {
   var keycode;
   keycode = window.event.keyCode;
   if (keycode === 32) { 
     changePlayer();
+  }
+  else if (keycode === 13) { 
+    stopClock();
   };
+
 };
+
+function stopClock() {
+ clearInterval(clock);
+ player = (player === 0) ? 1 : 0;
+};
+
+window.onload = function() {
+   var button = document.getElementById("stop_button");
+   // add onclick event 
+   button.onclick = function() { 
+        stopClock();
+   };
+};
+
 
 
 

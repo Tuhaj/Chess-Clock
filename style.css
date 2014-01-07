@@ -34,3 +34,11 @@ body
   src: 
   url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
 }
+
+#stop_button 
+{
+  display: inline-block;
+  margin-bottom: 1em;
+  font-size: 2em; 
+  border-radius: 5px;
+}
