@@ -47,6 +47,14 @@ body
   position: absolute;
 }
 
+.intertimer
+{
+  margin-top: 2em;
+  font-family: 'digital';
+  color: blue;
+  position: absolute; 
+}
+
 @font-face
 {
   font-family: 'digital';

@@ -1,4 +1,4 @@
-var timers = [0, 0],
+var timers = [0, 0], intertimer = [0,0],
   player, clock, player_names = ["",""];
 //SETTINGS add: intervals, minutes
 function setNames() {
@@ -20,7 +20,7 @@ function setTimers() {
   set.blur();
 };
 
-function displayTime(time) {
+function displayTime(time, short) {
   var hours, minutes, seconds, decimals;
   decimals = time%10;
   time = Math.floor(time/10);
@@ -38,15 +38,23 @@ function displayTime(time) {
   if (seconds < 10) {
     seconds = "0"+seconds;
   };
-  
+  if (short) {
+    return minutes+":"+seconds+"."+decimals;
+  }
+  else {
   return hours+":"+minutes+":"+seconds+"."+decimals;
+  };
 };
 
 function updateView() {
   time_1 = timers[0].toString();
   time_2 = timers[1].toString();
+  intertime_1 = intertimer[0].toString();
+  intertime_2 = intertimer[1].toString();
   document.getElementById('counter1').innerHTML = displayTime(time_1);  
   document.getElementById('counter2').innerHTML = displayTime(time_2);
+  document.getElementById('intertimer1').innerHTML = displayTime(intertime_1, true);  
+  document.getElementById('intertimer2').innerHTML = displayTime(intertime_2, true);
   blur();
 };
 
@@ -58,6 +66,7 @@ function tick() {
   } 
   else {
   timers[player] -= 1;
+  intertimer[player] += 1;
   updateView();
   };
 };
@@ -67,9 +76,14 @@ function stopClock() {
  player = (player === 0) ? 1 : 0;
 };
 
+function cleanIntertimer() {
+  intertimer[player] = 0;
+};
+
 function changePlayer() {
     clearInterval(clock);
     player = (player === 0) ? 1 : 0;
+    cleanIntertimer();
     clock = setInterval( tick, 100 );
 };
 
