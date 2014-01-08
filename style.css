@@ -42,3 +42,10 @@ body
   font-size: 2em; 
   border-radius: 5px;
 }
+#set_button
+{
+  display: inline-block;
+  margin-bottom: 1em;
+  font-size: 2em; 
+  border-radius: 5px;
+}

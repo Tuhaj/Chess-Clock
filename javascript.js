@@ -1,6 +1,11 @@
 var timers = [0, 0],
   player, clock;
 
+function set_timers() {
+  timers[0] = parseInt(prompt("player_1_time"));
+  timers[1] =parseInt(prompt("player_2_time"));
+};
+
 function updateView() {
   time_1 = timers[0].toString()
   time_2 = timers[1].toString()
@@ -28,7 +33,6 @@ window.onkeyup = function(e) {
   else if (keycode === 13) { 
     stopClock();
   };
-
 };
 
 function stopClock() {
@@ -37,26 +41,13 @@ function stopClock() {
 };
 
 window.onload = function() {
-   var button = document.getElementById("stop_button");
+   var stop = document.getElementById("stop_button");
    // add onclick event 
-   button.onclick = function() { 
+   stop.onclick = function() { 
         stopClock();
    };
+  var set = document.getElementById("set_button");
+   set.onclick = function() { 
+        set_timers();
+   };
 };
-
-
-
-
-// document.onkeypress = function(e) {
-//     e = e || window.event;
-//     var charCode = (typeof e.which == "number") ? e.which : e.keyCode;
-//     if (charCode) {
-//         alert("Character typed: " + String.fromCharCode(charCode));
-//     }
-// };
-
-// document.onkeypress = function verifyKey(e) {
-//     var keycode;
-//     keycode = window.event.keyCode;
-//     alert(keycode);
-//   };
