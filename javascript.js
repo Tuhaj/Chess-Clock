@@ -14,8 +14,14 @@ function updateView() {
 };
 
 function tick() {
-  timers[player] += 1;
+  if (timers[player] == 0) {
+    alert(player + " reached end of time!");
+    stopClock();
+  } 
+  else {
+  timers[player] -= 1;
   updateView();
+  };
 };
 
 function changePlayer() {
