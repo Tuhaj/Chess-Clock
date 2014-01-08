@@ -21,8 +21,25 @@ function setTimers() {
 };
 
 function displayTime(time) {
-  time = time.toString();
-  return time.slice(0,-1)+"."+time.slice(-1);
+  var hours, minutes, seconds, decimals;
+  decimals = time%10;
+  time = Math.floor(time/10);
+  seconds = time%60;
+  time = Math.floor(time/60);
+  minutes = time%60;
+  time = Math.floor(time/60);
+  hours = time%60;
+  if (minutes < 10) {
+    minutes = "0"+minutes;
+  };
+  if (hours <10) {
+    hours = "0"+hours;
+  };
+  if (seconds < 10) {
+    seconds = "0"+seconds;
+  };
+  
+  return hours+":"+minutes+":"+seconds+"."+decimals;
 };
 
 function updateView() {
