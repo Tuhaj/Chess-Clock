@@ -8,20 +8,27 @@
   <body>
     <h1>Chess Clock</h1>
     <section class="clock">
+    <div>
+    <button id="click_button">click</button>
+    </div>
     <span class="player">
-      Player One
-      <div class="counter" id="counter1">0</div>
+      <div id="player_1">Player One</div>
+      <div class="counter" id="counter1">set timer</div>
     </span>
     <span class="player">
-      Player Two
-      <div class="counter" id="counter2">0</div>
+      <div id="player_2">Player Two</div>
+      <div class="counter" id="counter2">set timer</div>
     </span>
     <button id="stop_button">stop</button>
     <button id="set_button">set</button>
-    <p>press <strong> space </strong> to run and switch</p>
-    <p>press <strong> shift </strong> to stop</p>
-    <p></p>
-    <p> press <strong> s </strong> to set the timer (seconds)</p>
+    <div class="settings">
+      <button id="set_names">names</button>
+    </div>
+      <div class="instruction">
+        <p>press <strong> space </strong> to run or switch</p>
+        <p>press <strong> shift </strong> to stop</p>
+        <p> press <strong> s </strong> to set the timer (seconds)</p>
+      </div>
     </section>
   </body>
 </html>

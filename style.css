@@ -49,6 +49,20 @@ body
   font-size: 2em; 
   border-radius: 5px;
 }
+#set_names
+{
+  display: inline-block;
+  margin: 1em;
+  font-size: 2em; 
+  border-radius: 5px;
+}
+#click_button
+{
+  display: inline-block;
+  width: 200px;
+  font-size: 2em; 
+  border-radius: 5px;
+}
 p
 {
   font-size: 2em;
