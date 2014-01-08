@@ -1,7 +1,7 @@
 var timers = [0, 0],
   player, clock, player_names = ["",""];
-//SETTINGS
-function set_names() {
+//SETTINGS add: intervals, minutes
+function setNames() {
   player_names[0] = prompt("enter player one name");
   player_names[1] = prompt("enter player two name");
   updatePlayersNames();
@@ -12,7 +12,7 @@ function updatePlayersNames() {
   document.getElementById('player_2').innerHTML = player_names[1];
 };
 
-function set_timers() {
+function setTimers() {
   var set = document.getElementById("set_button");
   timers[0] = parseInt(prompt("enter "+ player_names[0] + " (player 1) time")) * 10;
   timers[1] =parseInt(prompt("enter " + player_names[1] + " (player 2) time")) * 10;
@@ -20,11 +20,16 @@ function set_timers() {
   set.blur();
 };
 
+function displayTime(time) {
+  time = time.toString();
+  return time.slice(0,-1)+"."+time.slice(-1);
+};
+
 function updateView() {
   time_1 = timers[0].toString();
   time_2 = timers[1].toString();
-  document.getElementById('counter1').innerHTML = time_1.slice(0,-1)+"."+time_1.slice(-1); 
-  document.getElementById('counter2').innerHTML = time_2.slice(0,-1)+"."+time_2.slice(-1);
+  document.getElementById('counter1').innerHTML = displayTime(time_1);  
+  document.getElementById('counter2').innerHTML = displayTime(time_2);
   blur();
 };
 
@@ -62,10 +67,10 @@ window.onkeyup = function(event) {
     stopClock();
   }
   else if (keycode === 83) {
-    set_timers();
+    setTimers();
   }
   else if (keycode === 78) {
-    set_names();
+    setNames();
   };
 };
 
@@ -76,11 +81,11 @@ window.onload = function() {
    };
   var set = document.getElementById("set_button");
    set.onclick = function() { 
-        set_timers();
+        setTimers();
    };
   var names = document.getElementById("set_names");
    names.onclick = function() { 
-        set_names();
+        setNames();
    };
   var click = document.getElementById("click_button");
    click.onclick = function() { 
