@@ -1,6 +1,6 @@
 body
 {
-  background: GhostWhite;
+  background: black;
   text-align: center;
   margin: 50px;
 }
@@ -9,11 +9,22 @@ body
   margin-top: 20px;
   display: inline-block;
   border: 2px solid black;
-  width: 800px;
-  height: 300px;
+  width: 850px;
+  height: 400px;
   top: 200px;
   border-radius: 5px;
+  background-color: #CFCFD8;
+
 }
+.settings {
+  color: white;
+}
+
+.instruction
+{
+  font-size: 1em;
+}
+
 .player
 {
   display: inline-block;
@@ -25,7 +36,6 @@ body
   margin-top: 1em;
   font-family: 'digital';
   color: blue;
-  height: 100px;
 }
 
 @font-face
@@ -34,7 +44,9 @@ body
   src: 
   url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
 }
-
+.buttons {
+  display: inline-block;
+}
 #stop_button 
 {
   display: inline-block;
@@ -59,11 +71,12 @@ body
 #click_button
 {
   display: inline-block;
-  width: 200px;
+  margin-bottom: 1em;
   font-size: 2em; 
   border-radius: 5px;
 }
 p
 {
+  color: white;
   font-size: 2em;
 }
