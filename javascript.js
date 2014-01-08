@@ -1,10 +1,15 @@
 var timers = [0, 0],
   player, clock, player_names = ["",""];
-
+//SETTINGS
 function set_names() {
   player_names[0] = prompt("enter player one name");
   player_names[1] = prompt("enter player two name");
   updatePlayersNames();
+};
+
+function updatePlayersNames() {
+  document.getElementById('player_1').innerHTML = player_names[0]; 
+  document.getElementById('player_2').innerHTML = player_names[1];
 };
 
 function set_timers() {
@@ -16,17 +21,14 @@ function set_timers() {
 };
 
 function updateView() {
-  time_1 = timers[0].toString()
-  time_2 = timers[1].toString()
+  time_1 = timers[0].toString();
+  time_2 = timers[1].toString();
   document.getElementById('counter1').innerHTML = time_1.slice(0,-1)+"."+time_1.slice(-1); 
   document.getElementById('counter2').innerHTML = time_2.slice(0,-1)+"."+time_2.slice(-1);
   blur();
 };
-function updatePlayersNames() {
-  document.getElementById('player_1').innerHTML = player_names[0]; 
-  document.getElementById('player_2').innerHTML = player_names[1];
-};
 
+//CLOCK
 function tick() {
   if (timers[player] == 0) {
     alert(player_names[player] + " reached end of time!");
@@ -38,12 +40,18 @@ function tick() {
   };
 };
 
+function stopClock() {
+ clearInterval(clock);
+ player = (player === 0) ? 1 : 0;
+};
+
 function changePlayer() {
     clearInterval(clock);
     player = (player === 0) ? 1 : 0;
     clock = setInterval( tick, 100 );
 };
 
+//HOT KEYS
 window.onkeyup = function(event) {
   var keycode;
   keycode = event.keyCode;
@@ -61,14 +69,8 @@ window.onkeyup = function(event) {
   };
 };
 
-function stopClock() {
- clearInterval(clock);
- player = (player === 0) ? 1 : 0;
-};
-
 window.onload = function() {
    var stop = document.getElementById("stop_button");
-   // add onclick event 
    stop.onclick = function() { 
         stopClock();
    };
