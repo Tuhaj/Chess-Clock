@@ -1,0 +1,51 @@
+body
+{
+  background: GhostWhite;
+  text-align: center;
+  margin: 50px;
+}
+.clock 
+{
+  margin-top: 20px;
+  display: inline-block;
+  border: 2px solid black;
+  width: 800px;
+  height: 300px;
+  top: 200px;
+  border-radius: 5px;
+}
+.player
+{
+  display: inline-block;
+  font-size: 3em;
+  padding: 1em; 
+}
+.counter
+{
+  margin-top: 1em;
+  font-family: 'digital';
+  color: blue;
+  height: 100px;
+}
+
+@font-face
+{
+  font-family: 'digital';
+  src: 
+  url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
+}
+
+#stop_button 
+{
+  display: inline-block;
+  margin-bottom: 1em;
+  font-size: 2em; 
+  border-radius: 5px;
+}
+#set_button
+{
+  display: inline-block;
+  margin-bottom: 1em;
+  font-size: 2em; 
+  border-radius: 5px;
+}
