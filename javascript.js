@@ -44,7 +44,7 @@ function changePlayer() {
     clock = setInterval( tick, 100 );
 };
 
-window.onkeyup = function(e) {
+window.onkeyup = function(event) {
   var keycode;
   keycode = window.event.keyCode;
   if (keycode === 32) { 
