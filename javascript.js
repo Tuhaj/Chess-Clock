@@ -46,7 +46,7 @@ function changePlayer() {
 
 window.onkeyup = function(event) {
   var keycode;
-  keycode = event.keyCode;
+  keycode = event.charCode;
   if (keycode === 32) { 
     changePlayer();
   }
