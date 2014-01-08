@@ -1,10 +1,12 @@
 var timers = [0, 0], intertimer = [0,0],
   player, clock, player_names = ["",""];
-//SETTINGS add: intervals, minutes
+//SETTINGS
 function setNames() {
+  var name = document.getElementById("set_names");
   player_names[0] = prompt("enter player one name");
   player_names[1] = prompt("enter player two name");
   updatePlayersNames();
+  name.blur();
 };
 
 function updatePlayersNames() {
