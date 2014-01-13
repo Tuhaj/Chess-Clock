@@ -82,6 +82,7 @@ img
 .buttons 
 {
   display: inline-block;
+  background-color: silver;
 }
 
 .setting_button
@@ -114,4 +115,5 @@ img
   font-size: 1.5em; 
   border-radius: 0.5em;
   margin-bottom: 1em;
+  background-color: silver;
 }
