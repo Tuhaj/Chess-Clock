@@ -7,11 +7,13 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $("#tips_button").click(function(){
+    $('.tooltip').tooltip('disable');
+    blur();
+  });
+});
+
 $(function() {
-    $( "#stop_button" ).tooltip();
-    $( "#click_button" ).tooltip();
-    $( "#set_names" ).tooltip();
-    $( "#bonus_button" ).tooltip();
-    $( "#time_button" ).tooltip();
-    $( "#info_button" ).tooltip();
+    $( ".tooltip").tooltip();
   });

@@ -81,7 +81,13 @@ img
 
 .buttons 
 {
+  font-family: 'digital';
   display: inline-block;
+  margin: 1em;
+  font-size: 1.5em; 
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  background-color: silver;
 }
 
 .setting_button
@@ -105,15 +111,4 @@ img
   margin-bottom: 1em;
   font-size: 2em; 
   border-radius: 0.5em;
-}
-
-#info_button
-{
-  font-family: 'digital';
-  display: inline-block;
-  margin: 1em;
-  font-size: 1.5em; 
-  border-radius: 0.5em;
-  margin-bottom: 1em;
-  background-color: silver;
 }

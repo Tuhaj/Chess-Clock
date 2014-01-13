@@ -15,8 +15,8 @@
   <body>
     <section class="clock">
     <div>
-      <span class="clock_button" id="click_button" title="runs the clock and changes the player"><img src="forward.png"></span>
-      <span class="clock_button" id="stop_button" title="stops the clock"><img src="pause.png"></span>
+      <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="forward.png"></span>
+      <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="pause.png"></span>
     </div>
     <span class="player">
       <div id="player_1">Player One</div>
@@ -33,14 +33,14 @@
     <table class="helpers">
       <td>
         <div class="settings">settings</div>
-        <div><button class="setting_button" id="set_names" title="sets player names">players</button></div>
-        <span><button class="setting_button" id="time_button" title="sets whole time">time</button></span>
-        <span><button class="setting_button" id="bonus_button" title="adds bouns time for each move">bonus</button></span>
+        <div><button class="setting_button tooltip" id="set_names" title="sets player names (hot key: n)">players</button></div>
+        <span><button class="setting_button tooltip" id="time_button" title="sets whole time (hot key: s)">time</button></span>
+        <span><button class="setting_button tooltip" id="bonus_button" title="adds bouns time for each move (hot key: b)">bonus</button></span>
         
       </td>
       <td class="instruction">
       <p>* hot keys *</p>
-      <p>press ''s'' to set the timer (minutes) or reset</p>
+      <p>press ''s'' to set the timer /minutes/ or reset</p>
       <p>press ''space'' to run or switch</p>
       <p>press ''shift''  to stop</p>  
       </td>
@@ -53,6 +53,7 @@
       <p>Open source licence, belongs to everyone and impossible to be stolen ;-) </p>
       <p>made by Tuhaj</p>
     </div>
-    <div><button id="info_button" title="shows info about this chess clock">about</button></div>
+    <div><button class="buttons tooltip" id="info_button" title="shows info about this chess clock">about</button></div>
+     <div><button class="buttons" id="tips_button">turn tooltips off</button></div>
   </body>
 </html>
