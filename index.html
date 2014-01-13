@@ -3,14 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <script src="javascript.js"></script>
+    <script src="jquery.js"></script>
+
+    <title>Matibar The Chess Clock</title>
   </head>
   <body>
-    <h1>Chess Clock</h1>
+    <h1>Matibar The Chess Clock</h1>
     <section class="clock">
     <div>
-      <span id="click_button"><img src="forward.png" width="115px" height="115px"></span>
-      <span id="stop_button"><img src="pause.png" width="115px" height="115px"></span>
+      <span class="clock_button" id="click_button"><img src="forward.png"></span>
+      <span class="clock_button" id="stop_button"><img src="pause.png"></span>
     </div>
     <span class="player">
       <div id="player_1">Player One</div>
@@ -26,16 +31,26 @@
 
     <table class="helpers">
       <td>
-        <div  class="settings">settings</div>
-        <div><button id="set_names">players</button></div>
-        <div><button id="set_button">time</button></div>
+        <div class="settings">settings</div>
+        <div><button class="setting_button" id="set_names">players</button></div>
+        <div><button class="setting_button" id="set_button">time</button></div>
+        
       </td>
       <td class="instruction">
       <p>* hot keys *</p>
-        <p>press ''space'' to run or switch</p>
-        <p>press ''shift''  to stop</p>
-        <p>press ''s'' to set the timer (seconds)</p>
+      <p>press ''s'' to set the timer (minutes)</p>
+      <p>press ''space'' to run or switch</p>
+      <p>press ''shift''  to stop</p>  
       </td>
     </table>
+   
+    <div class="hide_info" id="info">
+      <p>A small tribute to Mateusz Bartel, excellent Polish chess grandmaster. Thanks for inspiring games Mati.</p>
+      <p>Thanks to Krzysztof Modras for help with JS :-) </p>
+      <p>Layout design: Marta Cudnik-Zientara </p>
+      <p>Open source licence, belongs to everyone and impossible to be stolen ;-) </p>
+      <p>made by Tuhaj</p>
+    </div>
+    <div><button id="info_button">about</button></div>
   </body>
 </html>

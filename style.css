@@ -1,5 +1,6 @@
 body
 {
+  font-family: 'digital';
   background: black;
   text-align: center;
   margin: 50px;
@@ -8,20 +9,25 @@ body
 p
 {
   margin-left: 200px;
-  font-family: 'digital';
   color: white;
   font-size: 1.5em;
   text-align: left;
 }
 
-.helpers {
+img
+{
+  width: 115px; 
+  height: 115px;
+}
+
+.helpers 
+{
   display: inline-block;
 }
 
 .clock 
 {
   margin-top: 20px;
-  font-family: 'digital';
   display: inline-block;
   border: 4px solid blue;
   width: 850px;
@@ -31,11 +37,11 @@ p
 
 }
 
-.settings {
+.settings 
+{
   color: white;
-  font-family: 'digital';
-   font-size: 1.5em; 
-   margin-bottom: 10px;
+  font-size: 1.5em; 
+  margin-bottom: 1em;
 }
 
 .instruction
@@ -49,12 +55,12 @@ p
   font-size: 3em;
   padding-left: 1em;
   padding-right: 1em;
+  min-width: 3em;
 }
 
 .counter
 {
   margin-top: 1em;
-  font-family: 'digital';
   color: blue;
   position: absolute;
 }
@@ -62,7 +68,6 @@ p
 .intertimer
 {
   margin-top: 2em;
-  font-family: 'digital';
   color: blue;
   position: absolute; 
 }
@@ -71,43 +76,42 @@ p
 {
   font-family: 'digital';
   src: 
-  url('http://cssdeck.com/uploads/resources/fonts/digii/DS-DIGII.TTF');
+  url('DS-DIGII.TTF');
 }
 
-.buttons {
+.buttons 
+{
   display: inline-block;
 }
 
-#stop_button 
+.setting_button
+{
+  font-family: 'digital';
+  display: inline-block;
+  font-size: 1.5em; 
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+}
+
+.hide_info
+{
+  display: none;
+}
+
+.clock_button
 {
   display: inline-block;
   margin-bottom: 1em;
   font-size: 2em; 
-  border-radius: 5px;
+  border-radius: 0.5em;
 }
 
-#set_button
+#info_button
 {
-  display: inline-block;
   font-family: 'digital';
-  font-size: 1.5em; 
-  border-radius: 8px;
-  margin-bottom: 1em;
-}
-
-#set_names
-{
   display: inline-block;
-  font-family: 'digital';
   margin: 1em;
   font-size: 1.5em; 
-  border-radius: 8px;
+  border-radius: 0.5em;
   margin-bottom: 1em;
-}
-
-#click_button
-{
-  display: inline-block;
-  font-size: 2em; 
-  border-radius: 5px;
 }

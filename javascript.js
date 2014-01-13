@@ -16,8 +16,8 @@ function updatePlayersNames() {
 
 function setTimers() {
   var set = document.getElementById("set_button");
-  timers[0] = parseInt(prompt("enter "+ player_names[0] + " (player 1) time")) * 10;
-  timers[1] =parseInt(prompt("enter " + player_names[1] + " (player 2) time")) * 10;
+  timers[0] = parseInt(prompt("enter "+ player_names[0] + " (player 1) time")) * 600;
+  timers[1] =parseInt(prompt("enter " + player_names[1] + " (player 2) time")) * 600;
   updateView();
   set.blur();
 };
