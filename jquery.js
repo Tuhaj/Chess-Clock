@@ -6,3 +6,11 @@ $(document).ready(function() {
     blur();
   });
 });
+
+$(function() {
+    $( "#bonus_button" ).tooltip();
+  });
+
+$(function() {
+    $( "#time_button" ).tooltip();
+  });

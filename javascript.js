@@ -24,7 +24,7 @@ function getsTimes() {
   if (isNumber(time_one)) {
     time_two = prompt("enter " + player_names[1] + " (player 2) time");
     if(isNumber(time_two)) {
-      return time_one, time_two
+      return time_one, time_two;
     }
     else {
       alert("Please enter a number");
@@ -38,7 +38,7 @@ function getsTimes() {
 };
 
 function setTimers() {
-  var set = document.getElementById("set_button");
+  var set = document.getElementById("time_button");
   getsTimes();
   timers[0] = parseInt(time_one) * 600;
   timers[1] =parseInt(time_two) * 600;
@@ -112,7 +112,7 @@ function tick() {
 
 function stopClock() {
  clearInterval(clock);
- timer_on = false
+ timer_on = false;
  player = (player === 0) ? 1 : 0;
 };
 
@@ -127,7 +127,7 @@ function changePlayer() {
     };
     player = (player === 0) ? 1 : 0;
     cleanIntertimers();
-    timer_on = true
+    timer_on = true;
     clock = setInterval( tick, 100 );
 };
 
@@ -160,7 +160,7 @@ window.onload = function() {
    stop.onclick = function() { 
         stopClock();
    };
-  var set = document.getElementById("set_button");
+  var set = document.getElementById("time_button");
    set.onclick = function() { 
         setTimers();
    };
