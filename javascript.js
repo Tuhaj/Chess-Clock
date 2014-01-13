@@ -135,14 +135,9 @@ function changePlayer() {
 window.onkeyup = function(event) {
   var keycode;
   keycode = event.keyCode;
-  
 
   if (keycode === 32) {
-
-    changePlayer();
-    event.stopPropagation();
-    event.preventDefault();
-
+    changePlayer(); //if it is now possilbe to disable scroll, tell me!
   }
   else if (keycode === 16) { 
     stopClock();
