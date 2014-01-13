@@ -1,4 +1,4 @@
-var timers = [0, 0], intertimers = [0,0], time_one, time_two, bonus = 0,
+var timers = [0, 0], intertimers = [0,0], time_one, time_two, bonus = 0, timer_on = false,
   player, clock, player_names = ["",""];
 
 //Validations
@@ -112,6 +112,7 @@ function tick() {
 
 function stopClock() {
  clearInterval(clock);
+ timer_on = false
  player = (player === 0) ? 1 : 0;
 };
 
@@ -121,9 +122,12 @@ function cleanIntertimers() {
 
 function changePlayer() {
     clearInterval(clock);
-    timers[player] += parseInt(bonus)*10;
+    if (timer_on) {
+    timers[player] += parseInt(bonus) * 10;
+    };
     player = (player === 0) ? 1 : 0;
     cleanIntertimers();
+    timer_on = true
     clock = setInterval( tick, 100 );
 };
 
