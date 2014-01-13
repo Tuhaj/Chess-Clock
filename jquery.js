@@ -8,9 +8,10 @@ $(document).ready(function() {
 });
 
 $(function() {
+    $( "#stop_button" ).tooltip();
+    $( "#click_button" ).tooltip();
+    $( "#set_names" ).tooltip();
     $( "#bonus_button" ).tooltip();
-  });
-
-$(function() {
     $( "#time_button" ).tooltip();
+    $( "#info_button" ).tooltip();
   });
