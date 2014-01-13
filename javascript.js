@@ -1,4 +1,4 @@
-var timers = [0, 0], intertimers = [0,0], time_one, time_two,
+var timers = [0, 0], intertimers = [0,0], time_one, time_two, bonus = 0,
   player, clock, player_names = ["",""];
 
 //Validations
@@ -44,6 +44,19 @@ function setTimers() {
   timers[1] =parseInt(time_two) * 600;
   updateView();
   set.blur();
+};
+
+function setBonusTime() {
+  var time_for_move = document.getElementById("bonus_button");
+  bonus = prompt("enter bonus time for move (in seconds)");
+  if (isNumber(bonus)) {
+  return bonus;
+  }
+  else {
+    alert("Please enter a number");
+    setBonusTime();
+  };
+   time_for_move.blur();
 };
 
 function displayTime(time, short) {
@@ -108,6 +121,7 @@ function cleanIntertimers() {
 
 function changePlayer() {
     clearInterval(clock);
+    timers[player] += parseInt(bonus)*10;
     player = (player === 0) ? 1 : 0;
     cleanIntertimers();
     clock = setInterval( tick, 100 );
@@ -120,9 +134,11 @@ window.onkeyup = function(event) {
   
 
   if (keycode === 32) {
+
     changePlayer();
-    e.stopPropagation();
-    e.preventDefault();
+    event.stopPropagation();
+    event.preventDefault();
+
   }
   else if (keycode === 16) { 
     stopClock();
@@ -152,4 +168,8 @@ window.onload = function() {
    click.onclick = function() { 
         changePlayer();
    };
+  var time_for_move = document.getElementById("bonus_button");
+   time_for_move.onclick = function() { 
+        setBonusTime();
+    };  
 };
