@@ -150,6 +150,9 @@ window.onkeyup = function(event) {
   else if (keycode === 83) {
     setTimers();
   }
+   else if (keycode === 66) {
+    setBonusTime();
+  }
   else if (keycode === 78) {
     setNames();
   };
