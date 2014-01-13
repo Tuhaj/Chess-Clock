@@ -1,5 +1,10 @@
-var timers = [0, 0], intertimer = [0,0],
+var timers = [0, 0], intertimers = [0,0], time_one, time_two,
   player, clock, player_names = ["",""];
+
+//Validations
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+};
 //SETTINGS
 function setNames() {
   var name = document.getElementById("set_names");
@@ -14,10 +19,29 @@ function updatePlayersNames() {
   document.getElementById('player_2').innerHTML = player_names[1];
 };
 
+function getsTimes() {
+    time_one = prompt("enter "+ player_names[0] + " (player 1) time");
+  if (isNumber(time_one)) {
+    time_two = prompt("enter " + player_names[1] + " (player 2) time");
+    if(isNumber(time_two)) {
+      return time_one, time_two
+    }
+    else {
+      alert("Please enter a number");
+      getsTimes();
+    };
+  }
+  else {
+      alert("Please enter a number");
+      getsTimes();
+    };
+};
+
 function setTimers() {
   var set = document.getElementById("set_button");
-  timers[0] = parseInt(prompt("enter "+ player_names[0] + " (player 1) time")) * 600;
-  timers[1] =parseInt(prompt("enter " + player_names[1] + " (player 2) time")) * 600;
+  getsTimes();
+  timers[0] = parseInt(time_one) * 600;
+  timers[1] =parseInt(time_two) * 600;
   updateView();
   set.blur();
 };
@@ -51,8 +75,8 @@ function displayTime(time, short) {
 function updateView() {
   time_1 = timers[0].toString();
   time_2 = timers[1].toString();
-  intertime_1 = intertimer[0].toString();
-  intertime_2 = intertimer[1].toString();
+  intertime_1 = intertimers[0].toString();
+  intertime_2 = intertimers[1].toString();
   document.getElementById('counter1').innerHTML = displayTime(time_1);  
   document.getElementById('counter2').innerHTML = displayTime(time_2);
   document.getElementById('intertimer1').innerHTML = displayTime(intertime_1, true);  
@@ -68,7 +92,7 @@ function tick() {
   } 
   else {
   timers[player] -= 1;
-  intertimer[player] += 1;
+  intertimers[player] += 1;
   updateView();
   };
 };
@@ -78,14 +102,14 @@ function stopClock() {
  player = (player === 0) ? 1 : 0;
 };
 
-function cleanIntertimer() {
-  intertimer[player] = 0;
+function cleanIntertimers() {
+  intertimers[player] = 0;
 };
 
 function changePlayer() {
     clearInterval(clock);
     player = (player === 0) ? 1 : 0;
-    cleanIntertimer();
+    cleanIntertimers();
     clock = setInterval( tick, 100 );
 };
 
@@ -93,8 +117,12 @@ function changePlayer() {
 window.onkeyup = function(event) {
   var keycode;
   keycode = event.keyCode;
-  if (keycode === 32) { 
+  
+
+  if (keycode === 32) {
     changePlayer();
+    e.stopPropagation();
+    e.preventDefault();
   }
   else if (keycode === 16) { 
     stopClock();
