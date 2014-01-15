@@ -1,4 +1,4 @@
-var timers = [0, 0], intertimers = [0,0], time_one, time_two, bonus = 0, timer_on = false,
+var timers = [6000, 6000], intertimers = [0,0], time_one, time_two, bonus = 0, timer_on = false,
   player, clock, player_names = ["",""];
 
 //Validations
@@ -42,6 +42,7 @@ function setTimers() {
   getsTimes();
   timers[0] = parseInt(time_one) * 600;
   timers[1] =parseInt(time_two) * 600;
+  intertimers = [0,0];
   updateView();
   set.blur();
 };

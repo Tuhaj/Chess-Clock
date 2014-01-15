@@ -13,6 +13,7 @@ Short list of what it does:
   - sets time in minutes but counts also decimals;
   - adds time for move - click "bonus" or just press "b";
   - it is possible to use on iPhone and iPad, probably also on other mobile devices;
+To reset the timer just click again "time" or press "s".
 
 Please contact me if you find any bugs or if you see a need for further improvements.
 The code's logic enables adding more timers and players. If you need some parts of the code or part of it don't ask and just go ahead.
