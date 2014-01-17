@@ -5,6 +5,16 @@ var timers = [6000, 6000], intertimers = [0,0], time_one, time_two, bonus = 0, t
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 };
+
+function validatesNumForFunction(input, operation) {
+  if(isNumber(input)) {
+    return input
+  }
+  else {
+    alert("Please enter only numbers");
+    operation();
+  };
+};
 //SETTINGS
 function setNames() {
   var name = document.getElementById("set_names");
@@ -20,21 +30,10 @@ function updatePlayersNames() {
 };
 
 function getsTimes() {
-    time_one = prompt("enter "+ player_names[0] + " (player 1) time");
-  if (isNumber(time_one)) {
-    time_two = prompt("enter " + player_names[1] + " (player 2) time");
-    if(isNumber(time_two)) {
-      return time_one, time_two;
-    }
-    else {
-      alert("Please enter a number");
-      getsTimes();
-    };
-  }
-  else {
-      alert("Please enter a number");
-      getsTimes();
-    };
+    time_one = prompt("enter "+ player_names[0] + " (player 1) time in minutes");
+    time_two = prompt("enter " + player_names[1] + " (player 2) time in minutes");
+    validatesNumForFunction(time_one, getsTimes);
+    validatesNumForFunction(time_two, getsTimes);
 };
 
 function setTimers() {
@@ -50,14 +49,8 @@ function setTimers() {
 function setBonusTime() {
   var time_for_move = document.getElementById("bonus_button");
   bonus = prompt("enter bonus time for move (in seconds)");
-  if (isNumber(bonus)) {
-  return bonus;
-  }
-  else {
-    alert("Please enter a number");
-    setBonusTime();
-  };
-   time_for_move.blur();
+  validatesNumForFunction(bonus, setBonusTime);
+  time_for_move.blur();
 };
 
 function displayTime(time, short) {
