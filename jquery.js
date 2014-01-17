@@ -17,3 +17,9 @@ $(document).ready(function() {
 $(function() {
     $( ".tooltip").tooltip();
   });
+
+$('#dropdown-1').on('show', function(event, dropdownData) {
+    console.log(dropdownData);
+}).on('hide', function(event, dropdownData) {
+    console.log(dropdownData);
+});

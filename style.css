@@ -12,6 +12,7 @@ p
   color: white;
   font-size: 1.5rem;
   text-align: left;
+  font-family: Verdana, sans-serif;
 }
 
 img
@@ -20,9 +21,19 @@ img
   height: 8rem;
 }
 
-.helpers 
+li
 {
   display: inline-block;
+}
+
+.dropdown-panel 
+{
+  font-family: Verdana, sans-serif;
+}
+
+.helpers 
+{
+  display: block;
 }
 
 .clock 
@@ -34,19 +45,6 @@ img
   height: 25em;
   border-radius: 3em;
   background-color: silver;
-
-}
-
-.settings 
-{
-  color: white;
-  font-size: 1.5em; 
-  margin-bottom: 1em;
-}
-
-.instruction
-{
-  font-size: 1em;
 }
 
 .player
@@ -90,15 +88,6 @@ img
   background-color: silver;
 }
 
-.setting_button
-{
-  font-family: 'digital';
-  display: inline-block;
-  font-size: 1.5em; 
-  border-radius: 0.5em;
-  margin-bottom: 1em;
-  background-color: silver;
-}
 
 .hide_info
 {

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="javascript.js"></script>
     <script src="jquery.js"></script>
+    <script type="text/javascript" src="jquery.dropdown.js"></script>
     <link rel="shortcut icon" href="pawn_icon.jpg">
 
     <title>Matibar The Chess Clock</title>
@@ -17,39 +19,41 @@
   <audio id="alert" src="alert.wav" ></audio>
   <audio id="stop" src="stop.wav" ></audio>
     <section class="clock">
-    <div>
-      <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="forward.png"></span>
+      <div>
+        <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="forward.png"></span>
+        <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="pause.png"></span>
+      </div>
 
-      <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="pause.png"></span>
-    </div>
-    <span class="player">
-      <div id="player_1">Player One</div>
-      <div class="counter" id="counter1">00:10:00.0</div>
-      <div class="intertimer tooltip" id="intertimer1" title="counts the last movement time">00:00</div>
-    </span>
-    <span class="player">
-      <div id="player_2">Player Two</div>
-      <div class="counter" id="counter2">00:10:00.0</div>
-      <div class="intertimer tooltip" id="intertimer2" title="counts the last movement time">00:00</div>
-    </span>
+      <span class="player">
+        <div id="player_1">Player One</div>
+        <div class="counter" id="counter1">00:10:00.0</div>
+        <div class="intertimer tooltip" id="intertimer1" title="counts the last movement time">00:00</div>
+      </span>
+
+      <span class="player">
+        <div id="player_2">Player Two</div>
+        <div class="counter" id="counter2">00:10:00.0</div>
+        <div class="intertimer tooltip" id="intertimer2" title="counts the last movement time">00:00</div>
+      </span>
     </section>
 
-    <table class="helpers">
-      <td>
-        <div class="settings">settings</div>
-        <div><button class="setting_button tooltip" id="set_names" title="sets player names (hot key: n)">players</button></div>
-        <span><button class="setting_button tooltip" id="time_button" title="sets whole time (hot key: s)">time</button></span>
-        <span><button class="setting_button tooltip" id="bonus_button" title="adds bouns time for each move (hot key: b)">bonus</button></span>
-        
-      </td>
-      <td class="instruction">
-      <p>* hot keys *</p>
-      <p>press ''s'' to set the timer /minutes/ or reset</p>
-      <p>press ''space'' to run or switch</p>
-      <p>press ''shift''  to stop</p>  
-      </td>
-    </table>
+    <ul class="helpers">
+        <li><button class="tooltip buttons" id="set_names" title="sets player names (hot key: n)">players</button></li>
+        <li><button class="tooltip buttons" id="time_button" title="sets whole time (hot key: s)">time</button></li>
+        <li><button class="tooltip buttons" id="bonus_button" title="adds bouns time for each move (hot key: b)">bonus</button></li>
+        <li><button class="buttons" data-dropdown="#dropdown-1"> hot keys </button></li>
+          <div id="dropdown-1" class="dropdown dropdown-tip">
+            <div class="dropdown-panel">
+              <li>press ''s'' to set the timer (minutes) or reset</li>
+              <li>press ''space'' to run or switch</li>
+              <li>press ''shift''  to stop</li>
+            </div>
+          </div>
+
+        <li><button class="buttons" id="tips_button">turn tooltips off</button></li>
+    </ul>
    
+
     <div class="hide_info" id="info">
       <p>A small tribute to Mateusz Bartel, excellent Polish chess grandmaster. Thanks for inspiring games Mati.</p>
       <p>Thanks to Krzysztof Modras for help with JS :-) </p>
@@ -57,7 +61,8 @@
       <p>Open source licence, belongs to everyone and impossible to be stolen ;-) </p>
       <p>made by Tuhaj</p>
     </div>
-    <div><button class="buttons tooltip" id="info_button" title="shows info about this chess clock">about</button></div>
-     <div><button class="buttons" id="tips_button">turn tooltips off</button></div>
+
+    <button class="tooltip buttons" id="info_button" title="shows info about this chess clock">about</button>
+     
   </body>
 </html>
