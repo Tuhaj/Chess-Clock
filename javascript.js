@@ -1,6 +1,5 @@
 var timers = [6000, 6000], intertimers = [0,0], time_one, time_two, bonus = 0, timer_on = false,
   player, clock, player_names = ["",""];
-
 //Validations
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -93,9 +92,15 @@ function updateView() {
 
 //CLOCK
 function tick() {
+  end = document.getElementById("alert");
   if (timers[player] == 0) {
+    end.play();
     alert(player_names[player] + " reached end of time!");
-    stopClock();
+      clearInterval(clock);
+       if (timer_on) {
+          player = (player === 0) ? 1 : 0;
+        };
+       timer_on = false;
   } 
   else {
   timers[player] -= 1;
@@ -105,9 +110,11 @@ function tick() {
 };
 
 function stopClock() {
- clearInterval(clock);
+  stop = document.getElementById("stop");
+  clearInterval(clock);
  if (timer_on) {
     player = (player === 0) ? 1 : 0;
+    stop.play();
   };
  timer_on = false;
 };
@@ -117,11 +124,13 @@ function cleanIntertimers() {
 };
 
 function changePlayer() {
+    click = document.getElementById("click");
     clearInterval(clock);
     if (timer_on) {
     timers[player] += parseInt(bonus) * 10;
     };
     player = (player === 0) ? 1 : 0;
+    click.play();
     cleanIntertimers();
     timer_on = true;
     clock = setInterval( tick, 100 );
