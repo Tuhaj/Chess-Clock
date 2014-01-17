@@ -106,8 +106,10 @@ function tick() {
 
 function stopClock() {
  clearInterval(clock);
+ if (timer_on) {
+    player = (player === 0) ? 1 : 0;
+  };
  timer_on = false;
- player = (player === 0) ? 1 : 0;
 };
 
 function cleanIntertimers() {
