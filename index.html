@@ -10,18 +10,18 @@
     <script src="javascript.js"></script>
     <script src="jquery.js"></script>
     <script type="text/javascript" src="jquery.dropdown.js"></script>
-    <link rel="shortcut icon" href="pawn_icon.jpg">
+    <link rel="shortcut icon" href="images/pawn_icon.jpg">
 
     <title>Matibar The Chess Clock</title>
   </head>
   <body>
-  <audio id="click" src="click.wav" ></audio>
-  <audio id="alert" src="alert.wav" ></audio>
-  <audio id="stop" src="stop.wav" ></audio>
+  <audio id="click" src="sounds/click.wav" ></audio>
+  <audio id="alert" src="sounds/alert.wav" ></audio>
+  <audio id="stop" src="sounds/stop.wav" ></audio>
     <section class="clock">
       <div>
-        <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="forward.png"></span>
-        <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="pause.png"></span>
+        <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="images/forward.png"></span>
+        <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="images/pause.png"></span>
       </div>
 
       <span class="player">
@@ -47,6 +47,8 @@
               <li>press ''s'' to set the timer (minutes) or reset</li>
               <li>press ''space'' to run or switch</li>
               <li>press ''shift''  to stop</li>
+              <li>''b'' sets bouns time for each move</li>
+              <li>''n'' sets player names</li>
             </div>
           </div>
 
@@ -55,7 +57,7 @@
    
 
     <div class="hide_info" id="info">
-      <p>A small tribute to Mateusz Bartel, excellent Polish chess grandmaster. Thanks for inspiring games Mati.</p>
+      <p>This is Matibar - time bar for chess. A small tribute to Mateusz Bartel, excellent Polish chess grandmaster. Thanks for inspiring games Mati.</p>
       <p>Thanks to Krzysztof Modras for help with JS :-) </p>
       <p>Layout design: Marta Cudnik-Zientara </p>
       <p>Open source licence, belongs to everyone and impossible to be stolen ;-) </p>
