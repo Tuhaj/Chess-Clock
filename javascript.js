@@ -1,5 +1,5 @@
 var timers = [6000, 6000], intertimers = [0,0], time_one, time_two, bonus = 0, timer_on = false,
-  player, clock, player_names = ["",""];
+  player, clock, player_names = ["",""], name_1, name_2, sound_on = true;
 //Validations
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -14,11 +14,27 @@ function validatesNumForFunction(input, operation) {
     operation();
   };
 };
+function validatesLength(input, operation) {
+  if(0 < input.length && input.length < 16) {
+    return input;
+  }
+  else {
+    alert("Please enter length between 1-15 characters");
+    operation();
+  };
+};
 //SETTINGS
+function set_sound() {
+  sound_on = (sound_on) ? false : true;
+}
 function setNames() {
   var name = document.getElementById("set_names");
-  player_names[0] = prompt("enter player one name");
-  player_names[1] = prompt("enter player two name");
+  name_1 = prompt("enter player one name");
+  name_2 = prompt("enter player two name");
+  validatesLength(name_1, setNames);
+  validatesLength(name_2, setNames);
+  player_names[0] = name_1;
+  player_names[1] = name_2;
   updatePlayersNames();
   name.blur();
 };
@@ -94,7 +110,9 @@ function updateView() {
 function tick() {
   end = document.getElementById("alert");
   if (timers[player] == 0) {
+    if(sound_on) {
     end.play();
+  };
     alert(player_names[player] + " reached end of time!");
       clearInterval(clock);
        if (timer_on) {
@@ -114,7 +132,9 @@ function stopClock() {
   clearInterval(clock);
  if (timer_on) {
     player = (player === 0) ? 1 : 0;
-    stop.play();
+    if(sound_on) {
+      stop.play();
+    };
   };
  timer_on = false;
 };
@@ -130,7 +150,9 @@ function changePlayer() {
     timers[player] += parseInt(bonus) * 10;
     };
     player = (player === 0) ? 1 : 0;
+    if(sound_on) {
     click.play();
+    };
     cleanIntertimers();
     timer_on = true;
     clock = setInterval( tick, 100 );
@@ -179,4 +201,10 @@ window.onload = function() {
    time_for_move.onclick = function() { 
         setBonusTime();
     };  
+  var sound_button = document.getElementById("sound_button");
+   sound_button.onclick = function() {
+        set_sound();
+        sound_on ? sound_button.innerHTML = "SOUND OFF" : sound_button.innerHTML = "SOUND ON";
+        sound_button.blur();
+  };
 };
