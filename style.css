@@ -36,17 +36,22 @@ li
 .helpers 
 {
   display: block;
+  margin-left: -3em;
 }
 
 .clock 
 {
   margin-top: 2em;
   display: inline-block;
-  border: 0.4em solid white;
+  border: 0.1em solid white;
   width: 55em;
   height: 25em;
   border-radius: 3em;
-  background-color: silver;
+  background-color: #A8A8AA;
+  background: -webkit-linear-gradient(#AAAAAA, #111111); /* For Safari */
+  background: -o-linear-gradient(#AAAAAA, #111111); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#AAAAAA, #111111); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#AAAAAA, #111111); /* Standard syntax */
 }
 
 .player
@@ -84,10 +89,9 @@ li
   font-family: 'digital';
   display: inline-block;
   margin: 0.5em;
-  font-size: 1.5em; 
-  border-radius: 0.5em;
+  font-size: 2em; 
   margin-bottom: 1em;
-  background-color: silver;
+  color: white;
 }
 
 
@@ -115,4 +119,9 @@ li
   color: white;
   background-color: black;
   border-radius: 0.2em;
+}
+#info_button
+{
+  color: black;
+  background-color: white;
 }
