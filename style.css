@@ -42,7 +42,7 @@ li
 {
   margin-top: 2em;
   display: inline-block;
-  border: 0.25em solid blue;
+  border: 0.4em solid white;
   width: 55em;
   height: 25em;
   border-radius: 3em;
@@ -61,14 +61,14 @@ li
 .counter
 {
   margin-top: 1em;
-  color: blue;
+  color: white;
   position: absolute;
 }
 
 .intertimer
 {
   margin-top: 2em;
-  color: blue;
+  color: white;
   position: absolute; 
 }
 
@@ -106,5 +106,13 @@ li
 
 #player_1
 {
+  color: black;
+  background-color: white;
+  border-radius: 0.2em;
+}
+#player_2
+{
   color: white;
+  background-color: black;
+  border-radius: 0.2em;
 }
