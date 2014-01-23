@@ -1,5 +1,5 @@
 //J QUERY
-var tooltip_is_on = true
+var tooltipIsOn = true
 $(document).ready(function() {
   $("#info_button").click(function(){
     $("#info").toggleClass("hide_info");
@@ -10,14 +10,14 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $("#tips_button").click(function(){
-    if(tooltip_is_on) {
+    if(tooltipIsOn) {
     $('.tooltip').tooltip('disable');
     $("#tips_button").text("turn tooltips on");
-    tooltip_is_on = false
+    tooltipIsOn = false
     }
     else {
     $('.tooltip').tooltip('enable');
-    tooltip_is_on = true
+    tooltipIsOn = true
     $("#tips_button").text("turn tooltips off");
     };
     $("#tips_button").blur();
@@ -25,5 +25,15 @@ $(document).ready(function() {
 });
 
 $(function() {
-    $( ".tooltip").tooltip();
-  });
+  $( ".tooltip").tooltip();
+});
+
+//easy clicks :-)
+
+$(function() {
+  $("#click_button").on('click', changePlayer);
+  $("#stop_button").on('click', stopClock);
+  $("#time_button").on('click', setTimers);
+  $("#set_names").on('click', setNames);
+  $("#bonus_button").on('click', setBonusTime);
+});
