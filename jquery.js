@@ -1,4 +1,3 @@
-//J QUERY
 var tooltipIsOn = true
 $(document).ready(function() {
   $("#info_button").click(function(){
@@ -36,4 +35,5 @@ $(function() {
   $("#time_button").on('click', setTimers);
   $("#set_names").on('click', setNames);
   $("#bonus_button").on('click', setBonusTime);
+  $("#reset_button").on('click', resetTimers);
 });

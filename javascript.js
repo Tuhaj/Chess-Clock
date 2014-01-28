@@ -1,5 +1,5 @@
 var timers = [6000, 6000], intertimers = [0,0], timeOne, timeTwo, bonus = 0, timerOn = false,
-    player, clock, playerNames = ["",""], name1, name2, soundOn = true;
+    player, clock, playerNames = ["",""], name1, name2, soundOn = true, timersMemory = [6000, 6000];
 //Validations
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -49,14 +49,23 @@ function getsTimes() {
     validatesNumForFunction(timeTwo, getsTimes);
 };
 
+
+
 function setTimers() {
   var set = document.getElementById("time_button");
   getsTimes();
   timers[0] = parseInt(timeOne) * 600;
   timers[1] =parseInt(timeTwo) * 600;
+  timersMemory = timers.slice(0);
   intertimers = [0,0];
   updateView();
   set.blur();
+};
+
+function resetTimers() {
+  timers = timersMemory.slice(0);
+  intertimers = [0,0];
+  updateView();
 };
 
 function setBonusTime() {
@@ -166,6 +175,8 @@ window.onkeyup = function(event) {
       setBonusTime();
   } else if (keycode === 78) {
       setNames();
+  } else if (keycode === 82) {
+      resetTimers();
   };
 };
 
