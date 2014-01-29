@@ -42,7 +42,7 @@ li
   margin-top: 2em;
   display: inline-block;
   border: 0.1em solid white;
-  width: 70em;
+  width: 60em;
   height: 27em;
   border-radius: 3em;
   background-color: #A8A8AA;
@@ -56,10 +56,10 @@ li
 {
   display: inline-block;
   position: relative;
-  font-size: 3.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  min-width: 3em;
+  font-size: 4em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  min-width: 2em;
 
 }
 .chess_knight 
@@ -70,11 +70,11 @@ li
 .names
 {
    box-shadow: 1px 2px 2px black; 
-   margin: 0em;
 }
 
 .counter
 {
+margin-top: 0.3em;
 color: white;
 text-align: left;
 }
@@ -124,14 +124,14 @@ text-align: left;
   color: black;
   background-color: #EEEEEE;
   border-radius: 0.2em;
-  min-width: 5em;
+  min-width: 4em;
 }
 #player_2
 {
   color: white;
   background-color: black;
   border-radius: 0.2em;
-  min-width: 5em;
+  min-width: 4em;
 }
 #info_button
 {
