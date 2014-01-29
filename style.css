@@ -42,7 +42,7 @@ li
   margin-top: 2em;
   display: inline-block;
   border: 0.1em solid white;
-  width: 60em;
+  width: 61em;
   height: 27em;
   border-radius: 3em;
   background-color: #A8A8AA;
@@ -124,14 +124,14 @@ text-align: left;
   color: black;
   background-color: #EEEEEE;
   border-radius: 0.2em;
-  min-width: 4em;
+  min-width: 4.2em;
 }
 #player_2
 {
   color: white;
   background-color: black;
   border-radius: 0.2em;
-  min-width: 4em;
+  min-width: 4.2em;
 }
 #info_button
 {
