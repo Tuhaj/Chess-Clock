@@ -20,28 +20,29 @@
   <audio id="stop" src="sounds/stop.wav" ></audio>
     <section class="clock">
       <div>
-        <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="images/forward.png"></span>
-        <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="images/pause.png"></span>
+        <span class="clock_button tooltip" id="click_button" title="runs the clock and changes the player"><img src="images/click.png"></span>
+        <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="images/stop.png"></span>
+        <span class="clock_button tooltip" id="reset_button" title="reset clock (hot key: r)"><img src="images/reset.png"></span>
       </div>
-
+       <span class="chess_knight"><img src="images/knight.png"></span>
       <span class="player">
-        <div id="player_1">White</div>
+        <div class="names" id="player_1">White</div>
         <div class="counter" id="counter1">00:10:00.0</div>
         <div class="intertimer tooltip" id="intertimer1" title="counts the last movement time">00:00</div>
       </span>
 
       <span class="player">
-        <div id="player_2">Black</div>
+        <div class="names" id="player_2">Black</div>
         <div class="counter" id="counter2">00:10:00.0</div>
         <div class="intertimer tooltip" id="intertimer2" title="counts the last movement time">00:00</div>
       </span>
+      <span class="chess_knight"><img src="images/black_knight.png"></span>
     </section>
 
     <ul class="helpers">
         <li class="tooltip buttons" id="set_names" title="sets player names (hot key: n)">players</li>
         <li class="tooltip buttons" id="time_button" title="sets whole time (hot key: s)">time</li>
         <li class="tooltip buttons" id="bonus_button" title="adds bouns time for each move (hot key: b)">bonus</li>
-        <li class="tooltip buttons" id="reset_button" title="resets clock (hot key: r)">reset</li>
         <li class="buttons" id="tips_button">turn tooltips off</li>
         <li class="buttons" id="sound_button">sound off</li>
         <li class="buttons" data-dropdown="#dropdown-1"> hot keys</li>
