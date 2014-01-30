@@ -93,8 +93,14 @@ text-align: left;
   url('DS-DIGII.TTF');
 }
 
+.hide_info
+{
+  display: none;
+}
+
 .buttons 
 {
+  cursor: pointer;
   font-family: 'digital';
   display: inline-block;
   margin: 0.5em;
@@ -103,14 +109,9 @@ text-align: left;
   color: white;
 }
 
-
-.hide_info
-{
-  display: none;
-}
-
 .clock_button
 {
+  cursor: pointer;
   margin-left: 2em;
   margin-right: 2em;
   margin-bottom: 1em;
