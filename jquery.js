@@ -26,14 +26,3 @@ $(document).ready(function() {
 $(function() {
   $( ".tooltip").tooltip();
 });
-
-//easy clicks :-)
-
-$(function() {
-  $("#click_button").on('click', changePlayer);
-  $("#stop_button").on('click', stopClock);
-  $("#time_button").on('click', setTimers);
-  $("#set_names").on('click', setNames);
-  $("#bonus_button").on('click', setBonusTime);
-  $("#reset_button").on('click', resetTimers);
-});
