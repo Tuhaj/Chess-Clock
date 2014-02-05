@@ -1,6 +1,5 @@
 
 (function () {
-  /*browser: true*/
   "use strict";
   var timers = [6000, 6000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
     player, clock, playerNames = ["", ""], soundOn = true, timersMemory = [6000, 6000], name, n1, n2, set;
@@ -51,8 +50,6 @@
     validatesNumForFunction(timeTwo, getsTimes);
   }
 
-
-
   function setTimers() {
     set = document.getElementById("time_button");
     getsTimes();
@@ -99,7 +96,6 @@
     display = minutes + ":" + seconds + "." + decimals;
     if (long) {display = hours + ":" + display; }
     return display;
-    // these two options are different in only one point, change!
   }
 
   function updateView() {
