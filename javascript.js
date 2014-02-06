@@ -78,42 +78,9 @@ function Cursor(id, counter) {
     counter.innerHTML = text;
     cursorIntervalOn = false;
   };
-
-
 }
 new Cursor("setter_1", "counter_1");
 new Cursor("setter_2", "counter_2");
-
-
-
-  //   function cursor2() {
-  //   var text = window.counter2.innerHTML;
-    
-  //   if (text.indexOf("|") === -1) {
-  //   text += "|";
-  //   }
-  //   else {
-  //     text = text.replace("|", "");
-  //   }
-  //   window.counter2.innerHTML = text;
-  // }
-
-  // setter_2.onkeyup = function () {
-  //   window.counter2.innerHTML = this.value + "|";
-  // }
-
-  // setter_2.onclick = function () {
-  //   cursorInterval = setInterval(cursor2, 500);
-  // };
-
-  // setter_2.onblur = function () {  
-  //   var text = window.counter2.innerHTML;
-  //   clearInterval(cursorInterval);
-  //   if (text.indexOf("|") > -1) {
-  //     text = text.replace("|", "");
-  //   }
-  //   window.counter2.innerHTML = text
-  // };
 
 
   //Validations
@@ -212,8 +179,8 @@ new Cursor("setter_2", "counter_2");
   }
 
   function updateView() {
-    document.getElementById('counter1').innerHTML = displayTime(timers[0], true);
-    document.getElementById('counter2').innerHTML = displayTime(timers[1], true);
+    document.getElementById('counter_1').innerHTML = displayTime(timers[0], true);
+    document.getElementById('counter_2').innerHTML = displayTime(timers[1], true);
     document.getElementById('intertimer1').innerHTML = displayTime(intertimers[0]);
     document.getElementById('intertimer2').innerHTML = displayTime(intertimers[1]);
     blur();
