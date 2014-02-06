@@ -25,6 +25,16 @@ li
 {
   display: inline-block;
 }
+input
+{
+  position: absolute;
+  margin: 1.5em;
+  margin-left: -12.5em;
+  padding: 2.5em 6.5em;
+  background-color: black;
+  color: white;
+    opacity: 0.5;
+}
 
 .dropdown-panel 
 {
@@ -74,6 +84,7 @@ li
 
 .counter
 {
+min-height: 1em;
 margin-top: 0.3em;
 color: white;
 text-align: left;

@@ -23,19 +23,21 @@
         <span class="clock_button tooltip" id="stop_button" title="stops the clock"><img src="images/stop.png" alt="stop button"></span>
         <span class="clock_button tooltip" id="reset_button" title="reset clock (hot key: r)"><img src="images/reset.png" alt="reset button"></span>
       </div>
-       <div class="chess_knight"><img src="images/knight.png" alt="white knight icon"></div>
+       <div class="chess_knight" id="white_knight"><img src="images/knight.png" alt="white knight icon"></div>
       <div class="player">
         <div class="names" id="player_1">White</div>
+        <input type="number" name="quantity" id="setter_1">
         <div class="counter" id="counter1">00:10:00.0</div>
         <div class="intertimer tooltip" id="intertimer1" title="counts the last movement time">00:00</div>
       </div>
 
       <div class="player">
         <div class="names" id="player_2">Black</div>
+        <input type="number" name="quantity" id="setter_2">
         <div class="counter" id="counter2">00:10:00.0</div>
         <div class="intertimer tooltip" id="intertimer2" title="counts the last movement time">00:00</div>
       </div>
-      <div class="chess_knight"><img src="images/black_knight.png" alt="black knight icon"></div>
+      <div class="chess_knight" id="black_knight"><img src="images/black_knight.png" alt="black knight icon"></div>
     </section>
     <div id="dropdown-1" class="dropdown dropdown-tip">
         <div class="dropdown-panel">

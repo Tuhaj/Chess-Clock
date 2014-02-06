@@ -1,8 +1,120 @@
 
+
 (function () {
   "use strict";
   var timers = [6000, 6000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
-    player, clock, playerNames = ["", ""], soundOn = true, timersMemory = [6000, 6000], name, n1, n2, set;
+    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [6000, 6000], name, n1, n2, set;
+  
+  //Setters
+//alien code!
+/*
+** Returns the caret (cursor) position of the specified text field.
+** Return value range is 0-oField.value.length.
+*/
+// function doGetCaretPosition (oField) {
+
+//   // Initialize
+//   var iCaretPos = 0;
+
+//   // IE Support
+//   if (document.selection) {
+
+//     // Set focus on the element
+//     oField.focus ();
+
+//     // To get cursor position, get empty selection range
+//     var oSel = document.selection.createRange ();
+
+//     // Move selection start to 0 position
+//     oSel.moveStart ('character', -oField.value.length);
+
+//     // The caret position is selection length
+//     iCaretPos = oSel.text.length;
+//   }
+
+//   // Firefox support
+//   else if (oField.selectionStart || oField.selectionStart == '0')
+//     iCaretPos = oField.selectionStart;
+
+//   // Return results
+//   return (iCaretPos);
+// }
+// alien code, end http://stackoverflow.com/questions/2897155/get-cursor-position-within-a-text-input-field
+  //setter2 = document.getElementById('setter2').innerHTML;
+
+function Cursor(id) { 
+  var el = document.getElementById(id); 
+  el.onclick = function() {
+    alert(id);
+  }  
+}
+new Cursor("white_knight")
+new Cursor("black_knight")
+
+  function cursor() {
+    var text = window.counter1.innerHTML;
+    
+    if (text.indexOf("|") === -1) {
+    text += "|";
+    }
+    else {
+      text = text.replace("|", "");
+    }
+    window.counter1.innerHTML = text;
+  }
+
+  setter_1.onkeyup = function () {
+    window.counter1.innerHTML = this.value + "|";
+  }
+
+  setter_1.onclick = function () {
+    if (!cursorIntervalOn) {
+      cursorInterval = setInterval(cursor, 500);
+      cursorIntervalOn = true;
+    }
+  };
+
+  setter_1.onblur = function () {  
+    var text = window.counter1.innerHTML;
+    clearInterval(cursorInterval);
+    cursorIntervalOn = false;
+    if (text.indexOf("|") > -1) {
+      text = text.replace("|", "");
+    }
+    window.counter1.innerHTML = text
+    cursorIntervalOn = false;
+  };
+
+    function cursor2() {
+    var text = window.counter2.innerHTML;
+    
+    if (text.indexOf("|") === -1) {
+    text += "|";
+    }
+    else {
+      text = text.replace("|", "");
+    }
+    window.counter2.innerHTML = text;
+  }
+
+  setter_2.onkeyup = function () {
+    window.counter2.innerHTML = this.value + "|";
+  }
+
+  setter_2.onclick = function () {
+    cursorInterval = setInterval(cursor2, 500);
+  };
+
+  setter_2.onblur = function () {  
+    var text = window.counter2.innerHTML;
+    clearInterval(cursorInterval);
+    if (text.indexOf("|") > -1) {
+      text = text.replace("|", "");
+    }
+    window.counter2.innerHTML = text
+  };
+
+
   //Validations
   function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
