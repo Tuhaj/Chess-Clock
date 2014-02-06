@@ -42,17 +42,11 @@
 // alien code, end http://stackoverflow.com/questions/2897155/get-cursor-position-within-a-text-input-field
   //setter2 = document.getElementById('setter2').innerHTML;
 
-function Cursor(id) { 
+function Cursor(id, counter) { 
   var el = document.getElementById(id); 
-  el.onclick = function() {
-    alert(id);
-  }  
-}
-new Cursor("white_knight")
-new Cursor("black_knight")
-
+  var counter = document.getElementById(counter);
   function cursor() {
-    var text = window.counter1.innerHTML;
+    var text = counter.innerHTML;
     
     if (text.indexOf("|") === -1) {
     text += "|";
@@ -60,59 +54,66 @@ new Cursor("black_knight")
     else {
       text = text.replace("|", "");
     }
-    window.counter1.innerHTML = text;
+    counter.innerHTML = text;
   }
 
-  setter_1.onkeyup = function () {
-    window.counter1.innerHTML = this.value + "|";
+  el.onkeyup = function () {
+    counter.innerHTML = this.value + "|";
   }
 
-  setter_1.onclick = function () {
+  el.onclick = function () {
     if (!cursorIntervalOn) {
       cursorInterval = setInterval(cursor, 500);
       cursorIntervalOn = true;
     }
   };
 
-  setter_1.onblur = function () {  
-    var text = window.counter1.innerHTML;
+  el.onblur = function () {  
+    var text = counter.innerHTML;
     clearInterval(cursorInterval);
     cursorIntervalOn = false;
     if (text.indexOf("|") > -1) {
       text = text.replace("|", "");
     }
-    window.counter1.innerHTML = text
+    counter.innerHTML = text;
     cursorIntervalOn = false;
   };
 
-    function cursor2() {
-    var text = window.counter2.innerHTML;
+
+}
+new Cursor("setter_1", "counter_1");
+new Cursor("setter_2", "counter_2");
+
+
+
+  //   function cursor2() {
+  //   var text = window.counter2.innerHTML;
     
-    if (text.indexOf("|") === -1) {
-    text += "|";
-    }
-    else {
-      text = text.replace("|", "");
-    }
-    window.counter2.innerHTML = text;
-  }
+  //   if (text.indexOf("|") === -1) {
+  //   text += "|";
+  //   }
+  //   else {
+  //     text = text.replace("|", "");
+  //   }
+  //   window.counter2.innerHTML = text;
+  // }
 
-  setter_2.onkeyup = function () {
-    window.counter2.innerHTML = this.value + "|";
-  }
+  // setter_2.onkeyup = function () {
+  //   window.counter2.innerHTML = this.value + "|";
+  // }
 
-  setter_2.onclick = function () {
-    cursorInterval = setInterval(cursor2, 500);
-  };
+  // setter_2.onclick = function () {
+  //   cursorInterval = setInterval(cursor2, 500);
+  // };
 
-  setter_2.onblur = function () {  
-    var text = window.counter2.innerHTML;
-    clearInterval(cursorInterval);
-    if (text.indexOf("|") > -1) {
-      text = text.replace("|", "");
-    }
-    window.counter2.innerHTML = text
-  };
+  // setter_2.onblur = function () {  
+  //   var text = window.counter2.innerHTML;
+  //   clearInterval(cursorInterval);
+  //   if (text.indexOf("|") > -1) {
+  //     text = text.replace("|", "");
+  //   }
+  //   window.counter2.innerHTML = text
+  // };
 
 
   //Validations
