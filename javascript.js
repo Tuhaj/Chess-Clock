@@ -78,9 +78,21 @@ function Cursor(id, counter) {
     counter.innerHTML = text;
     cursorIntervalOn = false;
   };
+
+  function setTimers() {
+
+  }
+
 }
-new Cursor("setter_1", "counter_1");
-new Cursor("setter_2", "counter_2");
+
+new Cursor("set_hours_1", "hours_1");
+new Cursor("set_hours_2", "hours_2");
+
+new Cursor("set_min_1", "minutes_1");
+new Cursor("set_min_2", "minutes_2");
+
+new Cursor("set_sec_1", "seconds_1");
+new Cursor("set_sec_2", "seconds_2");
 
 
   //Validations
@@ -255,6 +267,14 @@ new Cursor("setter_2", "counter_2");
       setNames();
     } else if (keycode === 82) {
       resetTimers();
+    }
+  };
+
+  document.onkeyup = function (event) {
+    var keycode = event.keyCode;
+
+    if (keycode === 13) {
+      window.focus();
     }
   };
 

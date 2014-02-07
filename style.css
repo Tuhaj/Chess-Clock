@@ -27,15 +27,21 @@ li
 }
 input
 {
-  position: absolute;
-  margin: 1.5em;
-  margin-left: -12.5em;
-  padding: 2.5em 6.5em;
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin-top: 0.5em;
+  width: 3.5em;
+  height: 3em;
+  padding: 1.5em 1.7em;
   background-color: black;
   color: white;
-    opacity: 0.5;
+  opacity: 0.0;
 }
-
+.clock_input
+{
+  text-align: center;
+}
 .dropdown-panel 
 {
   font-family: Verdana, sans-serif;
@@ -84,17 +90,49 @@ input
 
 .counter
 {
+position: absolute;
+padding: 0.1em;
 min-height: 1em;
-margin-top: 0.3em;
 color: white;
+margin-left:0.1em;
+margin-right: 0.1em;
+margin-top: 0.1em;
 text-align: left;
 }
+.counter_element
+{ 
+  position: absolute;
+  display: inline-block;
+}
+.hour
+{
+
+}
+.minute
+{
+}
+.second
+{
+}
+.first_semicolon
+{
+  margin-left: 1em;
+}
+.second_semicolon
+{
+  margin-left: 1em;
+}
+
 
 .intertimer
 {
 color: white;
 text-align: left;
-
+padding: 0.1em;
+min-height: 1em;
+margin-left:0.1em;
+margin-top: 0.1em;
+text-align: left;
 }
 
 @font-face
