@@ -31,7 +31,7 @@
         <div class="names" id="player_1">White</div>
 
         <div class="counter" id="counter_1">
-          <span id="hours_1" class="counter_element hour">00</span><span class="first_semicolon">:</span><span id="minutes_1" class="counter_element minute">00</span><span class="second_semicolon">:</span><span id="seconds_1" class="counter_element second">00.0</span>
+          <span id="hours_1" class="counter_element hour">00</span><span class="first_semicolon">:</span><span id="minutes_1" class="counter_element minute">05</span><span class="second_semicolon">:</span><span id="seconds_1" class="counter_element second">00.0</span>
         </div>
 
         <div class="clock_input"><input type="number" name="quantity" id="set_hours_1"><input type="number" name="quantity" id="set_min_1"><input type="number" name="quantity" id="set_sec_1"></div>
@@ -44,7 +44,7 @@
 
 
         <div class="counter" id="counter_2">
-          <span id="hours_2" class="counter_element hour">00</span><span class="first_semicolon">:</span><span id="minutes_2" class="counter_element minute">00</span><span class="second_semicolon">:</span><span id="seconds_2" class="counter_element second">00.0</span>
+          <span id="hours_2" class="counter_element hour">00</span><span class="first_semicolon">:</span><span id="minutes_2" class="counter_element minute">05</span><span class="second_semicolon">:</span><span id="seconds_2" class="counter_element second">00.0</span>
         </div>
 
         <div class="clock_input"><input type="number" name="quantity" id="set_hours_2"><input type="number" name="quantity" id="set_min_2"><input type="number" name="quantity" id="set_sec_2"></div>
@@ -56,17 +56,24 @@
 
     <div id="dropdown-1" class="dropdown dropdown-tip">
         <div class="dropdown-panel">
-          <div>press ''s'' to set the timer (minutes) or reset</div>
           <div>press ''space'' to run or switch</div>
           <div>press ''shift''  to stop</div>
           <div>''b'' sets bouns time for each move</div>
           <div>''n'' sets player names</div>
           <div>''r'' resets clock to previous settings</div>
+          <div>to set time click on timer</div>
         </div>
     </div>
+
+    <div id="dropdown-2" class="dropdown dropdown-tip">
+        <div class="dropdown-panel">
+          <div>set timer by clicking on timer</div>
+        </div>
+    </div>
+
     <ul class="helpers">
         <li class="tooltip buttons" id="set_names" title="sets player names (hot key: n)">players</li>
-        <li class="tooltip buttons" id="time_button" title="sets whole time (hot key: s)">set time</li>
+        <li class="buttons" id="time_button" data-dropdown="#dropdown-2">set time</li>
         <li class="tooltip buttons" id="bonus_button" title="adds bouns time for each move (hot key: b)">bonus</li>
         <li class="buttons" id="tips_button">turn tooltips off</li>
         <li class="buttons" id="sound_button">sound off</li>

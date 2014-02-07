@@ -1,8 +1,8 @@
 
 
 (function () {
-  var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [6000, 6000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
-    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [6000, 6000], name, n1, n2, set;
+  var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [3000, 3000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
+    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set;
   
   //Setters
 
@@ -29,11 +29,7 @@ function Cursor(id, counter, type, player) {
       el.blur();
       return true
     }
-    if (counter.innerHTML.length > 3) {
-      el.value = "";
-      counter.innerHTML = el.value;
-    }
-    if (!isNumber(el.value)) {
+    if (counter.innerHTML.length > 3 || !isNumber(String.fromCharCode(e.keyCode))) {
       el.value = "";
       counter.innerHTML = el.value;
     }
@@ -132,24 +128,6 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
     name.blur();
   }
 
-  function getsTimes() {
-    timeOne = prompt("enter " + playerNames[0] + " (player 1) time in minutes");
-    timeTwo = prompt("enter " + playerNames[1] + " (player 2) time in minutes");
-    validatesNumForFunction(timeOne, getsTimes);
-    validatesNumForFunction(timeTwo, getsTimes);
-  }
-
-  function setTimers() {
-    set = document.getElementById("time_button");
-    getsTimes();
-    timers[0] = parseInt(timeOne, null) * 600;
-    timers[1] = parseInt(timeTwo, null) * 600;
-    timersMemory = timers.slice(0);
-    intertimers = [0, 0];
-    updateTimer();
-    set.blur();
-  }
-
   function resetTimers() {
     timers = timersMemory.slice(0);
     intertimers = [0, 0];
@@ -200,6 +178,7 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
         player = (player === 0) ? 1 : 0;
       }
       timerOn = false;
+      disableInputs(false);
     } else {
       timers[player] -= 1;
       intertimers[player] += 1;
@@ -210,6 +189,7 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
   function stopClock() {
     stop = document.getElementById("stop");
     clearInterval(clock);
+    disableInputs(false);
     //take it out from the code
     if (timerOn) {
       player = (player === 0) ? 1 : 0;
@@ -237,6 +217,7 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
     }
     cleanIntertimers();
     timerOn = true;
+    disableInputs(true);
     clock = setInterval(tick, 100);
   }
 
@@ -248,8 +229,6 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
       changePlayer(); //if it is now possilbe to disable scroll, tell me!
     } else if (keycode === 16) {
       stopClock();
-    } else if (keycode === 83) {
-      setTimers();
     } else if (keycode === 66) {
       setBonusTime();
     } else if (keycode === 78) {
@@ -259,19 +238,10 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
     }
   };
 
-  document.onkeyup = function (event) {
-    var keycode = event.keyCode;
-
-    if (keycode === 13) {
-      window.focus();
-    }
-  };
-
   window.onload = function () {
     var soundButton = document.getElementById("sound_button"), click_button = document.getElementById("click_button"), stop_button = document.getElementById("stop_button"), time_button = document.getElementById("time_button"), set_names = document.getElementById("set_names"), bonus_button = document.getElementById("bonus_button"), reset_button = document.getElementById("reset_button");
     click_button.onclick = changePlayer;
     stop_button.onclick = stopClock;
-    time_button.onclick = setTimers;
     set_names.onclick = setNames;
     bonus_button.onclick = setBonusTime;
     reset_button.onclick = resetTimers;
@@ -282,4 +252,12 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
       soundButton.blur();
     };
   };
+
+  function disableInputs(boolean) {
+    var inputs=document.getElementsByTagName('input');
+    for(i=0;i<inputs.length;i++){
+      inputs[i].disabled=boolean;
+    }  
+  };
+
 })();
