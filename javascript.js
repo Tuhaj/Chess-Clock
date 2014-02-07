@@ -33,6 +33,10 @@ function Cursor(id, counter, type, player) {
       el.value = "";
       counter.innerHTML = el.value;
     }
+    if (!isNumber(el.value)) {
+      el.value = "";
+      counter.innerHTML = el.value;
+    }
   }
 
   el.onclick = function () {
