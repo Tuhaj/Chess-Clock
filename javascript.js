@@ -43,11 +43,15 @@ function Cursor(id, counter, type, player) {
     if (!cursorIntervalOn) {
       cursorInterval = setInterval(cursor, 500);
       cursorIntervalOn = true;
+      counter.innerHTML = this.value + "|";
     }
   };
 
   el.onblur = function () {
     var text = counter.innerHTML;
+    if (text.length === 0 || text === "|") {
+      text = "0";
+    }
     if (text.indexOf("|") > -1) {
       text = text.replace("|", "");
     }
