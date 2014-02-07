@@ -36,7 +36,7 @@ input
   padding: 1.5em 1.7em;
   background-color: black;
   color: white;
-  opacity: 0.0;
+  opacity: 0;
 }
 .clock_input
 {

@@ -1,50 +1,16 @@
 
 
 (function () {
-  "use strict";
-  var timers = [6000, 6000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
+  var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [6000, 6000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
     player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [6000, 6000], name, n1, n2, set;
   
   //Setters
-//alien code!
-/*
-** Returns the caret (cursor) position of the specified text field.
-** Return value range is 0-oField.value.length.
-*/
-// function doGetCaretPosition (oField) {
 
-//   // Initialize
-//   var iCaretPos = 0;
-
-//   // IE Support
-//   if (document.selection) {
-
-//     // Set focus on the element
-//     oField.focus ();
-
-//     // To get cursor position, get empty selection range
-//     var oSel = document.selection.createRange ();
-
-//     // Move selection start to 0 position
-//     oSel.moveStart ('character', -oField.value.length);
-
-//     // The caret position is selection length
-//     iCaretPos = oSel.text.length;
-//   }
-
-//   // Firefox support
-//   else if (oField.selectionStart || oField.selectionStart == '0')
-//     iCaretPos = oField.selectionStart;
-
-//   // Return results
-//   return (iCaretPos);
-// }
-// alien code, end http://stackoverflow.com/questions/2897155/get-cursor-position-within-a-text-input-field
-  //setter2 = document.getElementById('setter2').innerHTML;
-
-function Cursor(id, counter) { 
+function Cursor(id, counter, type, player) { 
   var el = document.getElementById(id); 
   var counter = document.getElementById(counter);
+  var self = this;
+
   function cursor() {
     var text = counter.innerHTML;
     
@@ -57,8 +23,16 @@ function Cursor(id, counter) {
     counter.innerHTML = text;
   }
 
-  el.onkeyup = function () {
+  el.onkeyup = function (e) {
     counter.innerHTML = this.value + "|";
+    if (e.keyCode === 13) {
+      el.blur();
+      return true
+    }
+    if (counter.innerHTML.length > 3) {
+      el.value = "";
+      counter.innerHTML = el.value;
+    }
   }
 
   el.onclick = function () {
@@ -68,32 +42,47 @@ function Cursor(id, counter) {
     }
   };
 
-  el.onblur = function () {  
+  el.onblur = function () {
     var text = counter.innerHTML;
-    clearInterval(cursorInterval);
-    cursorIntervalOn = false;
     if (text.indexOf("|") > -1) {
       text = text.replace("|", "");
     }
     counter.innerHTML = text;
+    if (type === "hour") {
+      hours[player] = parseInt(text, null);
+    }
+    if (type === "minute") {
+      minutes[player] = parseInt(text, null);
+    }
+    if (type === "second") {
+      seconds[player] = parseInt(text, null);
+    }
+    clearInterval(cursorInterval);
     cursorIntervalOn = false;
+    timers[player] = (hours[player] * 36000) + (minutes[player] * 600) + (seconds[player] * 10);
+    timersMemory = timers.slice(0);
+    updateTimer();
+    el.value = ""
   };
-
-  function setTimers() {
-
-  }
-
 }
 
-new Cursor("set_hours_1", "hours_1");
-new Cursor("set_hours_2", "hours_2");
+new Cursor("set_hours_1", "hours_1", "hour", 0);
+new Cursor("set_hours_2", "hours_2", "hour", 1);
 
-new Cursor("set_min_1", "minutes_1");
-new Cursor("set_min_2", "minutes_2");
+new Cursor("set_min_1", "minutes_1", "minute", 0);
+new Cursor("set_min_2", "minutes_2", "minute", 1);
 
-new Cursor("set_sec_1", "seconds_1");
-new Cursor("set_sec_2", "seconds_2");
+new Cursor("set_sec_1", "seconds_1", "second", 0);
+new Cursor("set_sec_2", "seconds_2", "second", 1);
 
+  function updateTimer() {
+    document.getElementById('hours_1').innerHTML = displayTime(timers[0], true).slice(0,2)
+    document.getElementById('hours_2').innerHTML = displayTime(timers[1], true).slice(0,2)
+    document.getElementById('minutes_1').innerHTML = displayTime(timers[0], true).slice(3,5)
+    document.getElementById('minutes_2').innerHTML = displayTime(timers[1], true).slice(3,5)
+    document.getElementById('seconds_1').innerHTML = displayTime(timers[0], true).slice(6,10)
+    document.getElementById('seconds_2').innerHTML = displayTime(timers[1], true).slice(6,10)
+  }
 
   //Validations
   function isNumber(n) {
@@ -149,14 +138,14 @@ new Cursor("set_sec_2", "seconds_2");
     timers[1] = parseInt(timeTwo, null) * 600;
     timersMemory = timers.slice(0);
     intertimers = [0, 0];
-    updateView();
+    updateTimer();
     set.blur();
   }
 
   function resetTimers() {
     timers = timersMemory.slice(0);
     intertimers = [0, 0];
-    updateView();
+    updateTimer();
   }
 
   function setBonusTime() {
@@ -190,14 +179,6 @@ new Cursor("set_sec_2", "seconds_2");
     return display;
   }
 
-  function updateView() {
-    document.getElementById('counter_1').innerHTML = displayTime(timers[0], true);
-    document.getElementById('counter_2').innerHTML = displayTime(timers[1], true);
-    document.getElementById('intertimer1').innerHTML = displayTime(intertimers[0]);
-    document.getElementById('intertimer2').innerHTML = displayTime(intertimers[1]);
-    blur();
-  }
-
   //CLOCK
   function tick() {
     var end = document.getElementById("end");
@@ -214,7 +195,7 @@ new Cursor("set_sec_2", "seconds_2");
     } else {
       timers[player] -= 1;
       intertimers[player] += 1;
-      updateView();
+      updateTimer();
     }
   }
 
