@@ -20,11 +20,22 @@ function Filler(id, counter, type, player) {
     counter.innerHTML = text;
   }
 
+  function setCursor() {
+    cursorInterval = setInterval(cursor, 500);
+    cursorIntervalOn = true;
+    counter.innerHTML = this.value + "|";
+  }
+
   el.onkeyup = function (e) {
     counter.innerHTML = this.value + "|";
     if (e.keyCode === 13) {
-      el.blur();  
+      el.blur();
       return true
+    }
+    if (e.keyCode === 9) {
+      cursorInterval = setInterval(cursor, 500);
+      cursorIntervalOn = true;
+      counter.innerHTML = this.value + "|";
     }
     if (counter.innerHTML.length > 3 || !isNumber(String.fromCharCode(e.keyCode))) {
       el.value = "";
@@ -151,7 +162,7 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
     time = Math.floor(time / 60);
     minutes = time % 60;
     time = Math.floor(time / 60);
-    hours = time % 60;
+    hours = time;
     if (minutes < 10) {
       minutes = "0" + minutes;
     }
