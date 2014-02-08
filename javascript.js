@@ -1,12 +1,9 @@
-
-
 (function () {
   var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [3000, 3000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
     player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set;
   
   //Setters
-
-function Cursor(id, counter, type, player) { 
+function Filler(id, counter, type, player) { 
   var el = document.getElementById(id); 
   var counter = document.getElementById(counter);
   var self = this;
@@ -26,7 +23,7 @@ function Cursor(id, counter, type, player) {
   el.onkeyup = function (e) {
     counter.innerHTML = this.value + "|";
     if (e.keyCode === 13) {
-      el.blur();
+      el.blur();  
       return true
     }
     if (counter.innerHTML.length > 3 || !isNumber(String.fromCharCode(e.keyCode))) {
@@ -70,14 +67,14 @@ function Cursor(id, counter, type, player) {
   };
 }
 
-new Cursor("set_hours_1", "hours_1", "hour", 0);
-new Cursor("set_hours_2", "hours_2", "hour", 1);
+new Filler("set_hours_1", "hours_1", "hour", 0);
+new Filler("set_hours_2", "hours_2", "hour", 1);
 
-new Cursor("set_min_1", "minutes_1", "minute", 0);
-new Cursor("set_min_2", "minutes_2", "minute", 1);
+new Filler("set_min_1", "minutes_1", "minute", 0);
+new Filler("set_min_2", "minutes_2", "minute", 1);
 
-new Cursor("set_sec_1", "seconds_1", "second", 0);
-new Cursor("set_sec_2", "seconds_2", "second", 1);
+new Filler("set_sec_1", "seconds_1", "second", 0);
+new Filler("set_sec_2", "seconds_2", "second", 1);
 
   function updateTimer() {
     document.getElementById('hours_1').innerHTML = displayTime(timers[0], true).slice(0,2)
@@ -86,6 +83,10 @@ new Cursor("set_sec_2", "seconds_2", "second", 1);
     document.getElementById('minutes_2').innerHTML = displayTime(timers[1], true).slice(3,5)
     document.getElementById('seconds_1').innerHTML = displayTime(timers[0], true).slice(6,10)
     document.getElementById('seconds_2').innerHTML = displayTime(timers[1], true).slice(6,10)
+
+    document.getElementById('intertimer1').innerHTML = displayTime(intertimers[0])
+    document.getElementById('intertimer2').innerHTML = displayTime(intertimers[1])
+
   }
 
   //Validations
