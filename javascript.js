@@ -1,8 +1,10 @@
 (function () {
   var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [3000, 3000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
     player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set;
-  
   //Setters
+var about = document.getElementById("info");
+about.blur();
+
 function Filler(id, counter, type, player) { 
   var el = document.getElementById(id); 
   var counter = document.getElementById(counter);
@@ -20,10 +22,10 @@ function Filler(id, counter, type, player) {
     counter.innerHTML = text;
   }
 
-  function setCursor() {
+  function setCursor(el) {
     cursorInterval = setInterval(cursor, 500);
     cursorIntervalOn = true;
-    counter.innerHTML = this.value + "|";
+    counter.innerHTML = el.value + "|";  
   }
 
   el.onkeyup = function (e) {
@@ -33,9 +35,7 @@ function Filler(id, counter, type, player) {
       return true
     }
     if (e.keyCode === 9) {
-      cursorInterval = setInterval(cursor, 500);
-      cursorIntervalOn = true;
-      counter.innerHTML = this.value + "|";
+     setCursor(this);
     }
     if (counter.innerHTML.length > 3 || !isNumber(String.fromCharCode(e.keyCode))) {
       el.value = "";
@@ -45,9 +45,7 @@ function Filler(id, counter, type, player) {
 
   el.onclick = function () {
     if (!cursorIntervalOn) {
-      cursorInterval = setInterval(cursor, 500);
-      cursorIntervalOn = true;
-      counter.innerHTML = this.value + "|";
+      setCursor(this);
     }
   };
 
@@ -97,7 +95,6 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
 
     document.getElementById('intertimer1').innerHTML = displayTime(intertimers[0])
     document.getElementById('intertimer2').innerHTML = displayTime(intertimers[1])
-
   }
 
   //Validations
@@ -176,8 +173,14 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
     if (long) {display = hours + ":" + display; }
     return display;
   }
-
   //CLOCK
+    function switchPlayer() {
+    if (timerOn) {
+      player = (player === 0) ? 1 : 0;
+    }
+    timerOn = false;
+  }
+
   function tick() {
     var end = document.getElementById("end");
     if (!timers[player]) {
@@ -186,10 +189,7 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
       }
       alert(playerNames[player] + " reached end of time!");
       clearInterval(clock);
-      if (timerOn) {
-        player = (player === 0) ? 1 : 0;
-      }
-      timerOn = false;
+      switchPlayer();
       disableInputs(false);
     } else {
       timers[player] -= 1;
@@ -199,18 +199,13 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
   }
 
   function stopClock() {
-    stop = document.getElementById("stop");
-    clearInterval(clock);
-    disableInputs(false);
-    //take it out from the code
-    if (timerOn) {
-      player = (player === 0) ? 1 : 0;
-      if (soundOn) {
-        stop.play();
-      }
+    var stop = document.getElementById("stop");
+    if (soundOn && timerOn) {
+      stop.play();
     }
-    timerOn = false;
-    //take it out from code
+    clearInterval(clock);
+    switchPlayer();
+    disableInputs(false);
   }
 
   function cleanIntertimers() {
@@ -236,7 +231,8 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
   //HOT KEYS
   window.onkeyup = function (event) {
     var keycode = event.keyCode;
-
+    var about = document.getElementById("info_button");
+    about.blur();
     if (keycode === 32) {
       changePlayer(); //if it is now possilbe to disable scroll, tell me!
     } else if (keycode === 16) {

@@ -22,3 +22,5 @@ Short list of what it does:
 Please contact me if you find any bugs or if you see a need for further improvements.
 The code's logic enables adding more timers and players. If you need some parts of the code or part of it don't ask and just go ahead.
 Happy playing!
+
+Piotr Zientara
