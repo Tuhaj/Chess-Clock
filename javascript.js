@@ -1,6 +1,6 @@
 (function () {
   var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [3000, 3000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
-    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set;
+    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set, allowedHotkeys = true;
   //Setters
 var about = document.getElementById("info");
 about.blur();
@@ -9,6 +9,10 @@ function Filler(id, counter, type, player) {
   var el = document.getElementById(id); 
   var counter = document.getElementById(counter);
   var self = this;
+  var numerical = false;
+  if (type === "hour" || type === "minute" || type === "second") {
+    numerical = true;
+  }
 
   function cursor() {
     var text = counter.innerHTML;
@@ -25,7 +29,8 @@ function Filler(id, counter, type, player) {
   function setCursor(el) {
     cursorInterval = setInterval(cursor, 500);
     cursorIntervalOn = true;
-    counter.innerHTML = el.value + "|";  
+    counter.innerHTML = el.value + "|";
+    allowedHotkeys = false;  
   }
 
   el.onkeyup = function (e) {
@@ -37,7 +42,7 @@ function Filler(id, counter, type, player) {
     if (e.keyCode === 9) {
      setCursor(this);
     }
-    if (counter.innerHTML.length > 3 || !isNumber(String.fromCharCode(e.keyCode))) {
+    if (numerical && counter.innerHTML.length > 3 || numerical &&!isNumber(String.fromCharCode(e.keyCode)) || counter.innerHTML.length > 9) {
       el.value = "";
       counter.innerHTML = el.value;
     }
@@ -51,7 +56,8 @@ function Filler(id, counter, type, player) {
 
   el.onblur = function () {
     var text = counter.innerHTML;
-    if (text.length === 0 || text === "|") {
+    allowedHotkeys = true;
+    if (numerical && text.length === 0 || text === "|") {
       text = "0";
     }
     if (text.indexOf("|") > -1) {
@@ -67,12 +73,14 @@ function Filler(id, counter, type, player) {
     if (type === "second") {
       seconds[player] = parseInt(text, null);
     }
-    clearInterval(cursorInterval);
-    cursorIntervalOn = false;
+    if (numerical) {
     timers[player] = (hours[player] * 36000) + (minutes[player] * 600) + (seconds[player] * 10);
     timersMemory = timers.slice(0);
     updateTimer();
     el.value = ""
+    }
+    clearInterval(cursorInterval);
+    cursorIntervalOn = false;
   };
 }
 
@@ -84,6 +92,9 @@ new Filler("set_min_2", "minutes_2", "minute", 1);
 
 new Filler("set_sec_1", "seconds_1", "second", 0);
 new Filler("set_sec_2", "seconds_2", "second", 1);
+
+new Filler("set_name_1", "name_1");
+new Filler("set_name_2", "name_2");
 
   function updateTimer() {
     document.getElementById('hours_1').innerHTML = displayTime(timers[0], true).slice(0,2)
@@ -233,16 +244,18 @@ new Filler("set_sec_2", "seconds_2", "second", 1);
     var keycode = event.keyCode;
     var about = document.getElementById("info_button");
     about.blur();
-    if (keycode === 32) {
-      changePlayer(); //if it is now possilbe to disable scroll, tell me!
-    } else if (keycode === 16) {
-      stopClock();
-    } else if (keycode === 66) {
-      setBonusTime();
-    } else if (keycode === 78) {
-      setNames();
-    } else if (keycode === 82) {
-      resetTimers();
+    if (allowedHotkeys) {
+      if (keycode === 32) {
+        changePlayer(); //if it is now possilbe to disable scroll, tell me!
+      } else if (keycode === 16) {
+        stopClock();
+      } else if (keycode === 66) {
+        setBonusTime();
+      } else if (keycode === 78) {
+        setNames();
+      } else if (keycode === 82) {
+        resetTimers();
+      }
     }
   };
 

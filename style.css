@@ -1,3 +1,10 @@
+@font-face
+{
+  font-family: 'digital';
+  src: 
+  url('DS-DIGII.TTF');
+}
+
 body
 {
   font-family: 'digital';
@@ -85,19 +92,20 @@ input
 
 .names
 {
-   box-shadow: 1px 2px 2px black; 
+  text-align: center;
+  box-shadow: 1px 2px 2px black; 
 }
 
 .counter
 {
-position: absolute;
-padding: 0.1em;
-min-height: 1em;
-color: white;
-margin-left:0.1em;
-margin-right: 0.1em;
-margin-top: 0.1em;
-text-align: left;
+  position: absolute;
+  padding: 0.1em;
+  min-height: 1em;
+  color: white;
+  margin-left:0.1em;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  text-align: left;
 }
 .counter_element
 { 
@@ -126,20 +134,13 @@ text-align: left;
 
 .intertimer
 {
-color: white;
-text-align: left;
-padding: 0.1em;
-min-height: 1em;
-margin-left:0.1em;
-margin-top: 0.1em;
-text-align: left;
-}
-
-@font-face
-{
-  font-family: 'digital';
-  src: 
-  url('DS-DIGII.TTF');
+  color: white;
+  text-align: left;
+  padding: 0.1em;
+  min-height: 1em;
+  margin-left:0.1em;
+  margin-top: 0.1em;
+  text-align: left;
 }
 
 .hide_info
@@ -187,4 +188,12 @@ text-align: left;
 {
   color: black;
   background-color: white;
+}
+
+#set_name_1, #set_name_2 {
+  position: absolute;
+  display: inline-block;
+  padding-right: 20em;
+  padding-left: 4em;
+  z-index: 2;
 }
