@@ -134,6 +134,13 @@ new Filler("set_name_2", "name_2");
     document.getElementById('name_1').innerHTML = playerNames[1];
     document.getElementById('name_2').innerHTML = playerNames[0];
     setNames();
+    switchTimers();
+  }
+
+  function switchTimers() {
+    timersMemory = timersMemory.reverse();
+    console.log(timersMemory);
+    resetTimers();
   }
 
   function setSound() {
