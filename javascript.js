@@ -1,6 +1,6 @@
 (function () {
   var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [3000, 3000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
-    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["", ""], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set, allowedHotkeys = true;
+    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["Player 1", "Player 2"], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set, allowedHotkeys = true;
   //Setters
 var about = document.getElementById("info");
 about.blur();
@@ -78,6 +78,8 @@ function Filler(id, counter, type, player) {
     timersMemory = timers.slice(0);
     updateTimer();
     el.value = ""
+    } else {
+      setNames();
     }
     clearInterval(cursorInterval);
     cursorIntervalOn = false;
@@ -128,24 +130,18 @@ new Filler("set_name_2", "name_2");
     operation();
   }
   //SETTINGS
-  function updatePlayersNames() {
-    document.getElementById('player_1').innerHTML = playerNames[0];
-    document.getElementById('player_2').innerHTML = playerNames[1];
+  function switchNames() {
+    document.getElementById('name_1').innerHTML = playerNames[1];
+    document.getElementById('name_2').innerHTML = playerNames[0];
+    setNames();
   }
 
   function setSound() {
     soundOn = soundOn ? false : true;
   }
   function setNames() {
-    name = document.getElementById("set_names");
-    n1 = prompt("enter player one name");
-    n2 = prompt("enter player two name");
-    validatesLength(n1, setNames);
-    validatesLength(n2, setNames);
-    playerNames[0] = n1;
-    playerNames[1] = n2;
-    updatePlayersNames();
-    name.blur();
+    playerNames[0] = document.getElementById('name_1').innerHTML
+    playerNames[1] = document.getElementById('name_2').innerHTML
   }
 
   function resetTimers() {
@@ -263,7 +259,7 @@ new Filler("set_name_2", "name_2");
     var soundButton = document.getElementById("sound_button"), click_button = document.getElementById("click_button"), stop_button = document.getElementById("stop_button"), time_button = document.getElementById("time_button"), set_names = document.getElementById("set_names"), bonus_button = document.getElementById("bonus_button"), reset_button = document.getElementById("reset_button");
     click_button.onclick = changePlayer;
     stop_button.onclick = stopClock;
-    set_names.onclick = setNames;
+    set_names.onclick = switchNames;
     bonus_button.onclick = setBonusTime;
     reset_button.onclick = resetTimers;
 
