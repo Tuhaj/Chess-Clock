@@ -1,6 +1,6 @@
 (function () {
   var hours = [0, 0], minutes = [0, 0], seconds = [0, 0], timers = [3000, 3000], intertimers = [0, 0], timeOne, timeTwo, bonus = 0, timerOn = false, timeForMove, stop,
-    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["Player 1", "Player 2"], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set, allowedHotkeys = true;
+    player, clock, cursorInterval, cursorIntervalOn = false, element, playerNames = ["Magnus", "Levon"], soundOn = true, timersMemory = [3000, 3000], name, n1, n2, set, allowedHotkeys = true;
   //Setters
 var about = document.getElementById("info");
 about.blur();
@@ -57,7 +57,7 @@ function Filler(id, counter, type, player) {
   el.onblur = function () {
     var text = counter.innerHTML;
     allowedHotkeys = true;
-    if (numerical && text.length === 0 || text === "|") {
+    if (numerical && text.length === 0 || numerical && text === "|") {
       text = "0";
     }
     if (text.indexOf("|") > -1) {
