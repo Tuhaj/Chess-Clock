@@ -77,12 +77,12 @@ function Filler(id, counter, type, player) {
     timers[player] = (hours[player] * 36000) + (minutes[player] * 600) + (seconds[player] * 10);
     timersMemory = timers.slice(0);
     updateTimer();
-    el.value = ""
     } else {
       setNames();
     }
     clearInterval(cursorInterval);
     cursorIntervalOn = false;
+    el.value = ""
   };
 }
 
@@ -122,13 +122,7 @@ new Filler("set_name_2", "name_2");
     alert("Please enter only numbers");
     operation();
   }
-  function validatesLength(input, operation) {
-    if (0 < input.length && input.length < 16) {
-      return input;
-    }
-    alert("Please enter length between 1-15 characters");
-    operation();
-  }
+
   //SETTINGS
   function switchNames() {
     document.getElementById('name_1').innerHTML = playerNames[1];
@@ -139,7 +133,6 @@ new Filler("set_name_2", "name_2");
 
   function switchTimers() {
     timersMemory = timersMemory.reverse();
-    console.log(timersMemory);
     resetTimers();
   }
 

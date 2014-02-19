@@ -21,8 +21,13 @@ $(document).ready(function() {
     };
     $("#tips_button").blur();
   });
+  $( "#time_button" ).mouseover(function() {
+    $( "#counter_1" ).effect( "shake", {times: 2, distance: 5}, 400 );
+    $( "#counter_2" ).effect( "shake", {times: 2 ,distance: 5}, 400 );
+  });
 });
 
 $(function() {
   $( ".tooltip").tooltip();
 });
+
