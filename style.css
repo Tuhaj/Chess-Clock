@@ -93,7 +93,7 @@ input
 .names
 {
   text-align: center;
-  box-shadow: 1px 2px 2px black; 
+  box-shadow: 0.1em 0.1em 0.2em black; 
 }
 
 .counter
@@ -175,14 +175,14 @@ input
   color: black;
   background-color: #EEEEEE;
   border-radius: 0.2em;
-  min-width: 4.2em;
+  width: 4.25em;
 }
 #player_2
 {
   color: white;
   background-color: black;
   border-radius: 0.2em;
-  min-width: 4.2em;
+  width: 4.25em;
 }
 #info_button
 {
